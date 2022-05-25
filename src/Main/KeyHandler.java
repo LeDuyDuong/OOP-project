@@ -27,7 +27,13 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_LEFT) {
             leftPressed = true;
         }
-        //DEBUG
+        if(code == KeyEvent.VK_T){
+            if(showDebugText== true){
+                showDebugText= false;
+            } else if (showDebugText==false) {
+                showDebugText=true;
+            }
+        }
 
     }
 
