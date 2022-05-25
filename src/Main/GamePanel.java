@@ -21,8 +21,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenHeight= tileSize * maxScreenRow; //576
 
     //World SETTINGS
-    public final int maxWorldCol=35;
-    public final int maxWorldRow=35;
+    public final int maxWorldCol=36;
+    public final int maxWorldRow=36;
 
     public final int worldWidth=tileSize*maxWorldCol;
     public final int worldHeight=tileSize*maxWorldRow;
@@ -97,7 +97,11 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D)g;
-        //tile
+        //long drawStart=0;
+//        if(keyHandler.showDebugText==true){
+//            drawStart=System.nanoTime();
+//        }
+            //tile
         tilesM.draw(g2);
 
         //object
@@ -117,9 +121,16 @@ public class GamePanel extends JPanel implements Runnable{
         player.draw(g2);
         if(keyHandler.showDebugText==true){
             g2.setFont(new Font("Arial",Font.PLAIN, 20));
-            g2.setColor(Color.white);
+            g2.setColor(Color.black);
             int x= 10; int y=400;
             int lineHeight= 20;
+            g2.drawString("World X: "+ player.worldX,x,y);
+            y+=lineHeight;
+            g2.drawString("World Y: "+ player.worldY,x,y);
+            y+=lineHeight;
+            g2.drawString("Col: "+ (player.worldX+player.solidArea.x)/tileSize, x,y);
+            y+=lineHeight;
+            g2.drawString("Row: "+ (player.worldY+player.solidArea.y)/tileSize, x,y);
 
         }
         g2.dispose();
