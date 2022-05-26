@@ -2,6 +2,7 @@ package Entity;
 
 import Main.GamePanel;
 import Main.KeyHandler;
+import Main.UtilityTool;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -35,20 +36,26 @@ public class Player extends Entity{
         speed =4;
     }
     public void getPlayerImage() {
+            up1 = setUpPlayer("/character and NPC/detective/detective_up_1.png");
+            up2 = setUpPlayer("/character and NPC/detective/detective_up_2.png");
+            down1 = setUpPlayer("/character and NPC/detective/detective_down_1.png");
+            down2 = setUpPlayer("/character and NPC/detective/detective_down_2.png");
+            right1 = setUpPlayer("/character and NPC/detective/detective_right_1.png");
+            right2 = setUpPlayer("/character and NPC/detective/detective_right_2.png");
+            left1 = setUpPlayer("/character and NPC/detective/detective_left_1.png");
+            left2 = setUpPlayer("/character and NPC/detective/detective_left_2.png");
+    }
+    public BufferedImage setUpPlayer(String imageName) {
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage image = null;
         try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("/character and NPC/detective/detective_up_1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/character and NPC/detective/detective_up_2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/character and NPC/detective/detective_down_1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/character and NPC/detective/detective_down_2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/character and NPC/detective/detective_right_1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/character and NPC/detective/detective_right_2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/character and NPC/detective/detective_left_1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/character and NPC/detective/detective_left_2.png"));
-        } catch(IOException e) {
+            image = ImageIO.read(getClass().getResourceAsStream(imageName));
+            image = uTool.scaleImage(image, gp.tileSize,gp.tileSize);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        return image;
     }
-
     public void update() {
         if (keyHandler.upPressed==true || keyHandler.downPressed==true
                 || keyHandler.leftPressed == true || keyHandler.rightPressed==true) {
@@ -74,6 +81,8 @@ public class Player extends Entity{
             int objIndex = gp.cChecker.checkObject(this, true);
             pickUpObject(objIndex);
 
+            //CHECK EVENT
+            gp.eHandler.checkEvent();
 
             // IF COLLISION IS FALSE, PLAYER CAN MOVE
             if (collisionOn == false) {
@@ -108,17 +117,17 @@ public class Player extends Entity{
         if(i!=999){
             //gp.obj[i] = null;
 
-            String objectName = gp.obj[i].name;
+            String objectName = gp.obj[gp.currentMap][i].name;
 
             switch (objectName){
                 case "Key":
                     hasKey++;
-                    gp.obj[i] = null;
+                    gp.obj[gp.currentMap][i] = null;
                     System.out.println("Key:" + hasKey);
                     break;
                 case "Door":
                     if(hasKey>0) {
-                        gp.obj[i] = null;
+                        gp.obj[gp.currentMap][i] = null;
                         hasKey--;
                     }
                     System.out.println("Key:" + hasKey);
@@ -182,7 +191,7 @@ public class Player extends Entity{
         if(bottomOffset>gp.worldHeight-worldY) {
             y = gp.screenHeight - (gp.worldWidth - worldY);
         }
-        g2.drawImage(image,x,y,gp.tileSize, gp.tileSize,null,null);
+        g2.drawImage(image,x,y,null);
     }
 }
 

@@ -1,196 +1,108 @@
 package Tiles;
 
 import Main.GamePanel;
+import Main.UtilityTool;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class TilesManager {
     GamePanel gp;
     Tile[] map;
-    int mapTileNum[][];
+    int mapTileNum[][][];
 
     public Tile[] getMap() {
         return map;
     }
 
-    public int[][] getMapTileNum() {
+    public int[][][] getMapTileNum() {
         return mapTileNum;
     }
 
     public TilesManager(GamePanel gp){
         this.gp= gp;
         map = new Tile[100];
-        mapTileNum= new int[gp.maxWorldCol][gp.maxWorldRow];
-         getTileImage();
-        loadMap();
+        mapTileNum= new int[gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
+        getTileImage();
+        loadMap("/maps/1st_floor_map.txt",0);
+
+        loadMap("/maps/room_1.txt",1);
+
+        loadMap("/maps/2nd_floor_map.txt",2);
     }
     public void getTileImage(){
-        try{
-            map[0]= new Tile();
-            map[0].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/path.png"));
-
-            map[1]= new Tile();
-            map[1].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/wall_up.png"));
-            map[1].collision=true;
-
-            map[2]= new Tile();
-            map[2].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/soil_path.png"));
-
-            map[3]= new Tile();
-            map[3].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/blank.png"));
-            map[3].collision=true;
-
-            map[4]= new Tile();
-            map[4].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/blank2.png"));
-            map[4].collision=true;
-
-            map[5]= new Tile();
-            map[5].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/wall_right.png"));
-            map[5].collision=true;
-
-            map[6]= new Tile();
-            map[6].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/door.png"));
-            map[6].collision=true;
-
-            map[7]= new Tile();
-            map[7].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/midtile0.png"));
-
-            map[8]= new Tile();
-            map[8].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/midtile1.png"));
-
-            map[9]= new Tile();
-            map[9].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/midtile2.png"));
-
-            map[10]= new Tile();
-            map[10].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/midtile3.png"));
-
-            map[11]= new Tile();
-            map[11].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/midtile5.png"));
-
-            map[12]= new Tile();
-            map[12].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/midtile6.png"));
-
-            map[13]= new Tile();
-            map[13].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/midtile7.png"));
-
-            map[14]= new Tile();
-            map[14].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/midtile8.png"));
-
-            map[15]= new Tile();
-            map[15].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/blank2-1.png"));
-            map[15].collision=true;
-
-            map[16]= new Tile();
-            map[16].image= ImageIO.read(getClass().getResourceAsStream("/tiles/others/blank2-2.png"));
-            map[16].collision=true;
-
-            map[17]= new Tile();
-            map[17].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/grass.png"));
-
-            map[18]= new Tile();
-            map[18].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/chair_left.png"));
-            map[18].collision=true;
-
-            map[19]= new Tile();
-            map[19].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/chair_right.png"));
-            map[19].collision=true;
-
-
-            map[20]= new Tile();
-            map[20].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/chair_b_1.png"));
-            map[20].collision=true;
-
-            map[21]= new Tile();
-            map[21].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/chair_b_2.png"));
-            map[21].collision=true;
+            setUpMap(0,"/tiles/others/path.png", false);
+            setUpMap(1,"/tiles/others/wall_up.png", true);
+            setUpMap(2,"/tiles/garden/soil_path.png", false);
+            setUpMap(3,"/tiles/others/blank.png", true);
+            setUpMap(4,"/tiles/others/blank2.png",true);
+            setUpMap(5,"/tiles/others/wall_right.png",true);
+            setUpMap(6,"/tiles/others/door.png",false);
+            setUpMap(7,"/tiles/others/midtile0.png",false);
+            setUpMap(8,"/tiles/others/midtile1.png",false);
+            setUpMap(9,"/tiles/others/midtile2.png",false);
+            setUpMap(10,"/tiles/others/midtile3.png",false);
+            setUpMap(11,"/tiles/others/midtile5.png",false);
+            setUpMap(12,"/tiles/others/midtile6.png",false);
+            setUpMap(13,"/tiles/others/midtile7.png",false);
+            setUpMap(14,"/tiles/others/midtile8.png",false);
+            setUpMap(15,"/tiles/others/blank2-1.png",true);
+            setUpMap(16,"/tiles/others/blank2-2.png",true);
+            setUpMap(17,"/tiles/garden/grass.png",false );
+            setUpMap(18,"/tiles/garden/chair_left.png",true);
+            setUpMap(19,"/tiles/garden/chair_right.png",true );
+            setUpMap(20,"/tiles/garden/chair_b_1.png",true);
+            setUpMap(21,"/tiles/garden/chair_b_2.png",true);
 
             //ROOF
-            map[22]= new Tile();
-            map[22].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof.png"));
-            map[22].collision=true;
-
-            map[23]= new Tile();
-            map[23].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_with_border_UP.png"));
-            map[23].collision=true;
-
-            map[24]= new Tile();
-            map[24].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_with_border_DOWN.png"));
-            map[24].collision=true;
-
-            map[25]= new Tile();
-            map[25].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_with_border_RIGHT.png"));
-            map[25].collision=true;
-
-            map[26]= new Tile();
-            map[26].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_with_border_LEFT.png"));
-            map[26].collision=true;
+            setUpMap(22,"/tiles/roof and borders/roof.png",true);
+            setUpMap(23,"/tiles/roof and borders/roof_with_border_UP.png",true);
+            setUpMap(24,"/tiles/roof and borders/roof_with_border_DOWN.png",true);
+            setUpMap(25,"/tiles/roof and borders/roof_with_border_RIGHT.png",true);
+            setUpMap(26,"/tiles/roof and borders/roof_with_border_LEFT.png",true);
 
             //27 28 29 30 corner borders
-            map[27]= new Tile();
-            map[27].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_corner_down_left.png"));
-            map[27].collision=true;
+            setUpMap(27,"/tiles/roof and borders/roof_corner_down_left.png",true);
+            setUpMap(28,"/tiles/roof and borders/roof_corner_down_right.png",true);
+            setUpMap(29,"/tiles/roof and borders/roof_corner_up_left.png",true);
+            setUpMap(30,"/tiles/roof and borders/roof_corner_up_right.png",true);
 
-            map[28]= new Tile();
-            map[28].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_corner_down_right.png"));
-            map[28].collision=true;
+            //garden STAIRs
+            setUpMap(31,"/tiles/garden/stair_left_1.png",false);
+            setUpMap(32,"/tiles/garden/stair_left_2.png",false);
+            setUpMap(33,"/tiles/garden/stair_right_1.png",false);
+            setUpMap(34,"/tiles/garden/stair_right_2.png",false);
+            setUpMap(35, "/tiles/garden/something_UP.png",true);
+            setUpMap(36,"/tiles/garden/something_DOWN.png",true);
 
-            map[29]= new Tile();
-            map[29].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_corner_up_left.png"));
-            map[29].collision=true;
-
-            map[30]= new Tile();
-            map[30].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_corner_up_right.png"));
-            map[30].collision=true;
-
-            //STAIRs
-            map[31]= new Tile();
-            map[31].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/stair_left_1.png"));
-
-            map[32]= new Tile();
-            map[32].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/stair_left_2.png"));
-
-            map[33]= new Tile();
-            map[33].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/stair_right_1.png"));
-
-            map[34]= new Tile();
-            map[34].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/stair_right_2.png"));
-
-            map[35]= new Tile();
-            map[35].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/something_UP.png"));
-            map[35].collision=true;
-
-            map[36]= new Tile();
-            map[36].image= ImageIO.read(getClass().getResourceAsStream("/tiles/garden/something_DOWN.png"));
-            map[36].collision=true;
             //ROOF DOT
-            map[37]= new Tile();
-            map[37].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_dot_1.png"));
-            map[37].collision=true;
+            setUpMap(37,"/tiles/roof and borders/roof_dot_1.png",true);
+            setUpMap(38,"/tiles/roof and borders/roof_dot_2.png",true);
+            setUpMap(39,"/tiles/roof and borders/roof_dot_3.png",true);
+            setUpMap(40,"/tiles/roof and borders/roof_dot_4.png",true);
 
-            map[38]= new Tile();
-            map[38].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_dot_2.png"));
-            map[38].collision=true;
+            // gate and stairs
+            setUpMap(41, "/tiles/gate/gate_stair_1.png",false);
+    }
 
-            map[39]= new Tile();
-            map[39].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_dot_3.png"));
-            map[39].collision=true;
-
-            map[40]= new Tile();
-            map[40].image= ImageIO.read(getClass().getResourceAsStream("/tiles/roof and borders/roof_dot_4.png"));
-            map[40].collision=true;
-        }catch(IOException e){
+    public void setUpMap(int index, String imagePath, boolean collision) {
+        UtilityTool uTool = new UtilityTool();
+        try {
+            map[index] = new Tile();
+            map[index].image = ImageIO.read(getClass().getResourceAsStream(imagePath));
+            map[index].image = uTool.scaleImage(map[index].image,gp.tileSize, gp.tileSize);
+            map[index].collision = collision;
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void loadMap(){
+    public void loadMap(String path, int map){
         try{
-            InputStream is=  getClass().getResourceAsStream("/maps/1st_floor_map.txt");
+            InputStream is=  getClass().getResourceAsStream(path);
             BufferedReader br= new BufferedReader(new InputStreamReader(is));
             int col=0;
             int row =0;
@@ -199,7 +111,7 @@ public class TilesManager {
                 while(col< gp.maxWorldCol){
                     String number[]   = line.split(" ");
                     int num =Integer.parseInt(number[col]);
-                    mapTileNum[col][row]= num;
+                    mapTileNum[map][col][row]= num;
                     col++;
                 }
                 if(col == gp.maxWorldCol){
@@ -217,7 +129,7 @@ public class TilesManager {
          int worldRow=0;
 
          while(worldCol<gp.maxWorldCol &&  worldRow<gp.maxWorldRow){
-             int tileNum= mapTileNum[worldCol][worldRow];
+             int tileNum= mapTileNum[gp.currentMap][worldCol][worldRow];
              int worldX= worldCol*gp.tileSize;
              int worldY= worldRow*gp.tileSize;
              int screenX= worldX- gp.player.worldX+gp.player.screenX;
@@ -243,12 +155,12 @@ public class TilesManager {
                      && worldX-gp.tileSize<gp.player.worldX+gp.player.screenX
                      && worldY+gp.tileSize>gp.player.worldY-gp.player.screenY
                      && worldY-gp.tileSize<gp.player.worldY+gp.player.screenY){
-                 g2.drawImage(map[tileNum].image, screenX, screenY,gp.tileSize, gp.tileSize,null);
+                 g2.drawImage(map[tileNum].image, screenX, screenY,null);
              }else if(gp.player.screenX>gp.player.worldX ||
                     gp.player.screenY>gp.player.worldY||
                     rightOffset>gp.worldWidth-gp.player.worldX||
                     bottomOffset>gp.worldHeight-gp.player.worldY){
-                    g2.drawImage(map[tileNum].image, screenX, screenY,gp.tileSize, gp.tileSize,null);
+                    g2.drawImage(map[tileNum].image, screenX, screenY,null);
              }
 
              worldCol++;

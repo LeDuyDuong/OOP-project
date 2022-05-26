@@ -11,32 +11,35 @@ public class AssetSetter {
     public AssetSetter(GamePanel gp){
         this.gp= gp;
     }
+
     //set position of object
     public void setObject(){
         //key 1
-        gp.obj[0] = new OBJ_Key();
-        gp.obj[0].worldX = 16 * gp.tileSize;
-        gp.obj[0].worldY = 26 * gp.tileSize;
+        int mapNum = 0;
+        gp.obj[mapNum][0] = new OBJ_Key();
+        gp.obj[mapNum][0].worldX = 16 * gp.tileSize;
+        gp.obj[mapNum][0].worldY = 26 * gp.tileSize;
 
         //key 2
-        gp.obj[1] = new OBJ_Key();
-        gp.obj[1].worldX = 16 * gp.tileSize;
-        gp.obj[1].worldY = 7 * gp.tileSize;
+        gp.obj[mapNum][1] = new OBJ_Key();
+        gp.obj[mapNum][1].worldX = 16 * gp.tileSize;
+        gp.obj[mapNum][1].worldY = 7 * gp.tileSize;
 
         //door 3
-        gp.obj[2] = new OBJ_Door();
-        gp.obj[2].worldX = 13 * gp.tileSize;
-        gp.obj[2].worldY = 7 * gp.tileSize;
+        gp.obj[mapNum][2] = new OBJ_Door();
+        gp.obj[mapNum][2].worldX = 13 * gp.tileSize;
+        gp.obj[mapNum][2].worldY = 7 * gp.tileSize;
 
         //chest 4
-        gp.obj[3] = new OBJ_Chest();
-        gp.obj[3].worldX = 16 * gp.tileSize;
-        gp.obj[3].worldY = 17 * gp.tileSize;
+        gp.obj[mapNum][3] = new OBJ_Chest();
+        gp.obj[mapNum][3].worldX = 16 * gp.tileSize;
+        gp.obj[mapNum][3].worldY = 17 * gp.tileSize;
 
     }
     public void setNPC(){
-        gp.npc[0]=new NPC_Student(gp);
-        gp.npc[0].worldX= gp.tileSize*1;
-        gp.npc[0].worldY= gp.tileSize*15;
+        int mapNum = 0;
+        gp.npc[mapNum][0]=new NPC_Student(gp);
+        gp.npc[mapNum][0].worldX= gp.tileSize*1;
+        gp.npc[mapNum][0].worldY= gp.tileSize*15;
     }
 }
