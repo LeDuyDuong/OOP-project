@@ -64,6 +64,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
+        playMusic(0);
     }
 
     public void setupGame(){
@@ -105,8 +106,6 @@ public class GamePanel extends JPanel implements Runnable{
         if (gameState == pauseState) {
 
         }
-        //play music
-        //playMusic(0);
     }
 
     public void paintComponent(Graphics g) {
