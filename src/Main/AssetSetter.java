@@ -1,6 +1,7 @@
 package Main;
 
 import Entity.NPC_Student;
+import Entity.NPC_student1;
 import object.OBJ_Chest;
 import object.OBJ_Door;
 import object.OBJ_Key;
@@ -39,7 +40,12 @@ public class AssetSetter {
     public void setNPC(){
         int mapNum = 0;
         gp.npc[mapNum][0]=new NPC_Student(gp);
-        gp.npc[mapNum][0].worldX= gp.tileSize*1;
+        gp.npc[mapNum][0].worldX= gp.tileSize*30;
         gp.npc[mapNum][0].worldY= gp.tileSize*15;
+
+        //NPC_1
+        gp.npc[mapNum][1]=new NPC_student1(gp);
+        gp.npc[mapNum][1].worldX= gp.tileSize*2;
+        gp.npc[mapNum][1].worldY= gp.tileSize*15;
     }
 }
