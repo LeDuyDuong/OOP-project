@@ -47,8 +47,10 @@ public class GamePanel extends JPanel implements Runnable{
     public AssetSetter aSetter = new AssetSetter(this);
     public Player player = new Player(this,keyHandler);
 
-    //initialize 10 objects in same time
-    public SuperObject obj[][] = new SuperObject[maxMap][10];
+    //initialize 40 objects in same time
+    public SuperObject obj[][] = new SuperObject[maxMap][40];
+
+    //initialize 20 npc in same time
     public  Entity npc[][]=new Entity[maxMap][20];
     //Game State
     public final int dialogueState =3;
