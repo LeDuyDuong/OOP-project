@@ -36,8 +36,8 @@ public class GamePanel extends JPanel implements Runnable{
     public EventHandler eHandler = new EventHandler(this);
 
     Sound sound = new Sound();            //SOUND
-    KeyHandler keyHandler = new KeyHandler(this); //KEY
-    UI ui = new UI(this); //UI
+    public KeyHandler keyHandler = new KeyHandler(this); //KEY
+    public UI ui = new UI(this); //UI
     Thread gameThread;
 
     public CollisionChecker cChecker = new CollisionChecker(this);
@@ -49,7 +49,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     //initialize 10 objects in same time
     public SuperObject obj[][] = new SuperObject[maxMap][10];
-    public  Entity npc[][]=new Entity[maxMap][10];
+    public  Entity npc[][]=new Entity[maxMap][20];
+    //Game State
+    public final int dialogueState =3;
 
     //initial position
     int playerX = 100;
@@ -103,6 +105,12 @@ public class GamePanel extends JPanel implements Runnable{
         if (gameState == playState) {
             player.update();
         }
+        //npc
+        for(int i=0;i<npc.length;i++){
+            if(npc[currentMap][i]!=null){
+                npc[currentMap][i].update();
+            }
+        }
         if (gameState == pauseState) {
 
         }
@@ -131,6 +139,8 @@ public class GamePanel extends JPanel implements Runnable{
 
         //player
         player.draw(g2);
+        //UI
+        ui.draw(g2);
 
         if(keyHandler.showDebugText==true){
             g2.setFont(new Font("Arial",Font.PLAIN, 20));

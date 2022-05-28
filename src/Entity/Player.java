@@ -80,6 +80,10 @@ public class Player extends Entity{
             //Check OBJECT COLLISION
             int objIndex = gp.cChecker.checkObject(this, true);
             pickUpObject(objIndex);
+            // Check NPC collision
+            int npcIndex =gp.cChecker.checkEntity(this,gp.npc[0]);
+
+            interactNPC(npcIndex);
 
             //CHECK EVENT
             gp.eHandler.checkEvent();
@@ -134,6 +138,14 @@ public class Player extends Entity{
                     break;
             }
         }
+    }
+    public void interactNPC(int i){
+        if(i!=999){
+            if(gp.keyHandler.enterPressed==true){
+            gp.gameState=gp.dialogueState;
+            gp.npc[gp.currentMap][i].speak();}
+        }
+        gp.keyHandler.enterPressed=false;
     }
 
 
