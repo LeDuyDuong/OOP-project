@@ -48,7 +48,7 @@ public class KeyHandler implements KeyListener {
             }
         }
         //play state
-        if(gp.gameState==gp.playState){
+        else if(gp.gameState==gp.playState){
             if(code == KeyEvent.VK_UP) {
                 upPressed = true;
             }
@@ -63,7 +63,10 @@ public class KeyHandler implements KeyListener {
             }
             if (code == KeyEvent.VK_P) {
                 gp.gameState = gp.pauseState;
-                }
+            }
+            if(code==KeyEvent.VK_E){
+                gp.gameState= gp.characterState;
+            }
             if (code == KeyEvent.VK_ENTER) {
                 enterPressed=true;
             }
@@ -78,17 +81,44 @@ public class KeyHandler implements KeyListener {
             }
         }
             //Pause State
-            if(gp.gameState==gp.pauseState){
-                if (code == KeyEvent.VK_P) {
-                    gp.gameState = gp.pauseState;
-                }
+        else if(gp.gameState==gp.pauseState){
+            if (code == KeyEvent.VK_P) {
+                gp.gameState = gp.playState;
             }
+        }
             //Dialogue State
-            else if(gp.gameState==gp.dialogueState){
-                if(code==KeyEvent.VK_ENTER){
-                    gp.gameState=gp.playState;
+        else if(gp.gameState==gp.dialogueState){
+            if(code==KeyEvent.VK_ENTER){
+                gp.gameState=gp.playState;
+            }
+        }
+            //Character State
+        else if(gp.gameState==gp.characterState){
+            if(code== KeyEvent.VK_E){
+                gp.gameState= gp.playState;
+            }
+            if(code==KeyEvent.VK_UP){
+                if(gp.ui.slotRow!=0){
+                    gp.ui.slotRow--;
+                }
+
+            }
+            if(code==KeyEvent.VK_DOWN){
+                if(gp.ui.slotRow!=3){
+                    gp.ui.slotRow++;
                 }
             }
+            if(code==KeyEvent.VK_LEFT){
+                if(gp.ui.slotCol!=0){
+                    gp.ui.slotCol--;
+                }
+            }
+            if(code==KeyEvent.VK_RIGHT){
+                if(gp.ui.slotCol!=4){
+                    gp.ui.slotCol++;
+                }
+            }
+        }
 
 
         if (code == KeyEvent.VK_R) {

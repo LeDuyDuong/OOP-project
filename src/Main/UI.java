@@ -44,6 +44,10 @@ public class UI {
             drawDialogueScreen();
 
         }
+        //player State
+        if(gp.gameState== gp.characterState){
+            drawInventory();
+        }
     }
     public void drawTittleScreen(){
         g2.setColor(Color.black);
@@ -122,7 +126,64 @@ public class UI {
         int y = gp.screenHeight/2;
         g2.drawString(text,x,y);
     }
+    int slotCol=0;
+    int slotRow=0;
+    public void drawInventory(){
+//        slotRow=0;
+//        slotCol=0;
+        //Frame
+        int frameX=gp.tileSize*10;
+        int frameY=gp.tileSize;
+        int frameWidth=gp.tileSize*6;
+        int frameHeight=gp.tileSize*5;
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+        //Slot
+        final int  slotStartX=frameX+20;
+        final int slotStartY= frameY+20;
+        int slotX=slotStartX;
+        int slotY=slotStartY;
 
+        //Draw player Inventory
+
+        for(int i=0;i<gp.player.inventory.size();i++){
+            g2.drawImage(gp.player.inventory.get(i).down1,slotX,slotY,null);
+            slotX+=gp.tileSize;
+            if(i==4 || i==9 || i==14 ){
+                slotY+= gp.tileSize;
+            }
+        }
+        //cursor
+        int cursorX=slotStartX+(gp.tileSize*slotCol);
+        int cursorY=slotStartY+(gp.tileSize*slotRow);
+        int cursorWidth=gp.tileSize;
+        int cursorHeight=gp.tileSize;
+        g2.setColor(Color.WHITE);g2.setStroke(new BasicStroke(3));
+        g2.drawRoundRect(cursorX,cursorY,cursorWidth,cursorHeight,10,10);
+
+        //description Frame
+        int dframeX=frameX;
+        int dframeY=frameY+frameHeight;
+        int dframeWidth=frameWidth;
+        int dframeHeight=gp.tileSize*3;
+        drawSubWindow(dframeX,dframeY,dframeWidth,dframeHeight);
+
+        int textX= dframeX+20;
+        int textY = dframeY+gp.tileSize;
+        g2.setFont(g2.getFont().deriveFont(28F));
+        int itemIndex=getItemIndexOnSlot();
+
+        if(itemIndex<gp.player.inventory.size()){
+            for(String line: gp.player.inventory.get(itemIndex).description.split("\n")){
+                g2.drawString(line,textX,textY);
+                textY+=32;
+            }
+        }
+    }
+
+    public int getItemIndexOnSlot(){
+        int itemIndex= slotCol+ slotRow*5;
+        return itemIndex;
+    }
     public int getXForCenteredText(String text) {
         int length  = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();
         int x = gp.screenWidth/2 - length/2;

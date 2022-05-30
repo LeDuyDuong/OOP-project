@@ -3,10 +3,13 @@ package Main;
 import Entity.Entity;
 import Entity.Player;
 import Tiles.TilesManager;
-import object.SuperObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -15,6 +18,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogueState =3;
+    public final int characterState =4;
 
     final int originalTileSize = 16;
     final int scale = 3;
@@ -53,10 +57,11 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player = new Player(this,keyHandler);
 
     //initialize 40 objects in same time
-    public SuperObject obj[][] = new SuperObject[maxMap][40];
+    public Entity obj[][] = new Entity[maxMap][40];
 
     //initialize 20 npc in same time
     public  Entity npc[][]=new Entity[maxMap][20];
+    ArrayList<Entity>entityList= new ArrayList<>();
     //Game State
 
 
@@ -133,23 +138,34 @@ public class GamePanel extends JPanel implements Runnable{
         }else{
             //tile
             tilesM.draw(g2);
-
-            //object
-            for(int i =0 ; i < obj[1].length ; i++){
-                if(obj[currentMap][i] != null){
-                    obj[currentMap][i].draw(g2, this);
-                }
-            }
-            //npc
-            for(int i =0 ; i < npc[1].length ; i++){
-                if(npc[currentMap][i] != null){
-                    npc[currentMap][i].draw(g2);
+            entityList.add(player);
+            for(int i=0;i<npc[currentMap].length;i++){
+                if(npc[currentMap][i]!=null){
+                    entityList.add(npc[currentMap][i]);
                 }
             }
 
-            //player
-            player.draw(g2);
-            //UI
+            for(int i=0;i<obj[currentMap].length;i++){
+                if(obj[currentMap][i]!=null){
+                    entityList.add(obj[currentMap][i]);
+                }
+            }
+
+            Collections.sort(entityList, new Comparator<Entity>() {
+                @Override
+                public int compare(Entity o1, Entity o2) {
+                    int result= Integer.compare(o1.worldY, o2.worldY);
+                    return result;
+                }
+            });
+
+            //Draw Entities
+            for(int i=0 ;i<entityList.size();i++){
+                entityList.get(i).draw(g2);
+            }
+            for(int i=0 ;i<entityList.size();i++){
+                entityList.remove(i);
+            }
             ui.draw(g2);
         }
 

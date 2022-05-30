@@ -1,16 +1,16 @@
 package object;
 
+import Entity.Entity;
+import Main.GamePanel;
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJ_Student_Chair extends SuperObject{
-    public OBJ_Student_Chair(){
+public class OBJ_Student_Chair extends Entity {
+    public OBJ_Student_Chair(GamePanel gp){
+        super(gp);
         name = "Student_Desk_Chair";
-        try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/student-chair.png"));
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        down1=setup("/objects/student-chair");
         collision = true;
     }
 }

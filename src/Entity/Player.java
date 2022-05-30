@@ -3,18 +3,21 @@ package Entity;
 import Main.GamePanel;
 import Main.KeyHandler;
 import Main.UtilityTool;
+import object.OBJ_Chest;
+import object.OBJ_Key;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class Player extends Entity{
     KeyHandler keyHandler;
     public final int screenX;
     public final int screenY;
     int hasKey = 0;
-
+    public ArrayList<Entity> inventory= new ArrayList<>();
+    public final int inventorySize=20;
     public Player(GamePanel gp, KeyHandler keyH) {
         super(gp);
         this.keyHandler=keyH;
@@ -28,6 +31,7 @@ public class Player extends Entity{
         solidAreaDefaultY = solidArea.y;
         setDefaultValues();
         getPlayerImage();
+        setItems();
     }
 
     public void setDefaultValues() {
@@ -55,6 +59,14 @@ public class Player extends Entity{
             e.printStackTrace();
         }
         return image;
+    }
+
+    public void setItems(){
+        inventory.add(new OBJ_Key(gp));
+        //inventory.add(new OBJ_Chest(gp));
+        inventory.add(new OBJ_Key(gp));
+        inventory.add(new OBJ_Key(gp));
+
     }
     public void update() {
         if (keyHandler.upPressed==true || keyHandler.downPressed==true

@@ -1,18 +1,24 @@
 package Entity;
 
 import Main.GamePanel;
+import Main.UtilityTool;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Entity {
+    public BufferedImage img, img1, img2;
+    public String name;
+    public boolean collision = false;
     GamePanel gp;
 
     public int worldX, worldY;
     public int speed;
 
     public BufferedImage up1, up2, down1, down2, right1, right2, left1,left2;
-    public String direction;
+    public String direction= "down";
 
     public int spriteCounter = 0;
     public int spriteNum=1;
@@ -22,6 +28,7 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn= false;
     public int actionLockCounter =0;
+    public String description="";
     String dialogues[]=new String[20];
     int dialogueIndex=0;
     public Entity(GamePanel gp){
@@ -190,6 +197,17 @@ public class Entity {
 
     }
 
+    public BufferedImage setup(String imagepath){
+        UtilityTool uTool= new UtilityTool();
+        BufferedImage img= null;
+        try{
+            img= ImageIO.read(getClass().getResourceAsStream(imagepath+".png"));
+            img= uTool.scaleImage(img, gp.tileSize,gp.tileSize);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return img;
+    }
 
 
 

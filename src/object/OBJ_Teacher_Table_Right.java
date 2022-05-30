@@ -1,16 +1,16 @@
 package object;
 
+import Entity.Entity;
+import Main.GamePanel;
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJ_Teacher_Table_Right extends SuperObject{
-    public OBJ_Teacher_Table_Right(){
+public class OBJ_Teacher_Table_Right extends Entity {
+    public OBJ_Teacher_Table_Right(GamePanel gp){
+        super(gp);
         name = "Teacher_Table_Right";
-        try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/teacher-table-right.png"));
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        down1=setup("/objects/teacher-table-right");
         collision = true;
     }
 }
