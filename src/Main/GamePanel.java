@@ -10,6 +10,12 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{
 
+    public int gameState;
+    public final int tittleState=0;
+    public final int playState = 1;
+    public final int pauseState = 2;
+    public final int dialogueState =3;
+
     final int originalTileSize = 16;
     final int scale = 3;
 
@@ -30,9 +36,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeight=tileSize*maxWorldRow;
 
     //GAME STATE
-    public int gameState;
-    public final int playState = 1;
-    public final int pauseState = 2;
+
+
     public EventHandler eHandler = new EventHandler(this);
 
     Sound sound = new Sound();            //SOUND
@@ -53,7 +58,7 @@ public class GamePanel extends JPanel implements Runnable{
     //initialize 20 npc in same time
     public  Entity npc[][]=new Entity[maxMap][20];
     //Game State
-    public final int dialogueState =3;
+
 
     //initial position
     int playerX = 100;
@@ -68,13 +73,13 @@ public class GamePanel extends JPanel implements Runnable{
 
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
-        playMusic(0);
+        //playMusic(0);
     }
 
     public void setupGame(){
         aSetter.setObject();
         aSetter.setNPC();
-        gameState = playState;
+        gameState = tittleState ;
     }
 
     public void startGameThread() {
@@ -114,7 +119,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
         if (gameState == pauseState) {
-
+            //do notthing
         }
     }
 
@@ -123,26 +128,32 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
+        if(gameState== tittleState){
+            ui.draw(g2);
+        }else{
             //tile
-        tilesM.draw(g2);
+            tilesM.draw(g2);
 
-        //object
-        for(int i =0 ; i < obj[1].length ; i++){
-            if(obj[currentMap][i] != null){
-                obj[currentMap][i].draw(g2, this);
+            //object
+            for(int i =0 ; i < obj[1].length ; i++){
+                if(obj[currentMap][i] != null){
+                    obj[currentMap][i].draw(g2, this);
+                }
             }
-        }
-        //npc
-        for(int i =0 ; i < npc[1].length ; i++){
-            if(npc[currentMap][i] != null){
-                npc[currentMap][i].draw(g2);
+            //npc
+            for(int i =0 ; i < npc[1].length ; i++){
+                if(npc[currentMap][i] != null){
+                    npc[currentMap][i].draw(g2);
+                }
             }
+
+            //player
+            player.draw(g2);
+            //UI
+            ui.draw(g2);
         }
 
-        //player
-        player.draw(g2);
-        //UI
-        ui.draw(g2);
+
 
         if(keyHandler.showDebugText==true){
             g2.setFont(new Font("Arial",Font.PLAIN, 20));
