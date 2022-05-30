@@ -6,11 +6,11 @@ import Main.GamePanel;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class OBJ_Door extends Entity {
-    public OBJ_Door(GamePanel gp){
+public class OBJ_Teacher_Chair extends Entity {
+    public OBJ_Teacher_Chair(GamePanel gp){
         super(gp);
-        name = "Door";
-        down1=setup("/objects/door");
+        name = "Teacher_Chair";
+        down1=setup("/objects/teacher-chair");
         collision = true;
     }
 }
