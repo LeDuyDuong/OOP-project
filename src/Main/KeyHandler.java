@@ -82,9 +82,28 @@ public class KeyHandler implements KeyListener {
         }
             //Pause State
         else if(gp.gameState==gp.pauseState){
-            if (code == KeyEvent.VK_P) {
-                gp.gameState = gp.playState;
-            }
+                if(code == KeyEvent.VK_UP) {
+                    gp.ui.commandNum--;
+                    if(gp.ui.commandNum<0){
+                        gp.ui.commandNum=1;
+                    }
+                }
+                if(code == KeyEvent.VK_DOWN) {
+                    gp.ui.commandNum++;
+                    if(gp.ui.commandNum>1){
+                        gp.ui.commandNum=0;
+                    }
+                }
+                if(code==KeyEvent.VK_ENTER){
+                    if(gp.ui.commandNum==0){
+                        gp.gameState= gp.playState;
+                        //gp.playMusic(0);
+                    }
+                    if(gp.ui.commandNum==1){
+                        gp.gameState=gp.tittleState;
+                        gp.sound.stop();
+                    }
+                }
         }
             //Dialogue State
         else if(gp.gameState==gp.dialogueState){

@@ -5,7 +5,7 @@ import java.awt.*;
 public class EventHandler {
     GamePanel gp;
     EventRectangle eventRect[][][];
-    int eventRectDefaultX, eventRectDefaultY;
+    //int eventRectDefaultX, eventRectDefaultY;
     int previousEventX, previousEventY;
     boolean canTouchEvent = true;
 

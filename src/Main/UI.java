@@ -72,7 +72,7 @@ public class UI {
         g2.drawImage(gp.player.down1, x, y, gp.tileSize*2, gp.tileSize*2, null);
         //MENU
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
-        Text= "START";
+        Text= "PLAY";
         x=getXForCenteredText(Text);
         y+=gp.tileSize*3.5;
         g2.drawString(Text, x, y);
@@ -111,7 +111,7 @@ public class UI {
 
     }
     public void drawSubWindow(int x,int y, int width,int height){
-        Color c=new Color(0,0,0,200);
+        Color c=new Color(0,0,0,150);
         g2.setColor(c);
         g2.fillRoundRect(x,y,width,height,35,35);
         c = new Color(255,255,255);
@@ -120,11 +120,29 @@ public class UI {
         g2.drawRoundRect(x+5,y+5,width-10,height-10,25,25);
     }
     public void drawPauseScreen() {
+        drawSubWindow(120,40, 500, 500);
         this.g2.setFont(g2.getFont().deriveFont(Font.PLAIN,80F));
+        g2.setColor(Color.WHITE);
         String text = "PAUSED";
         int x = getXForCenteredText(text);
-        int y = gp.screenHeight/2;
+        int y = gp.tileSize*3;
         g2.drawString(text,x,y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
+        String Text= "CONTINUE";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize*3.5;
+        g2.drawString(Text, x, y);
+        if(commandNum==0){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+        Text= "BACK TO MENU";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        if(commandNum==1){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+
     }
     int slotCol=0;
     int slotRow=0;
