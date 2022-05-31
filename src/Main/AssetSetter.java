@@ -1,7 +1,9 @@
 package Main;
 
+import Entity.NPC_Amber;
 import Entity.NPC_Student;
 import Entity.NPC_student1;
+import Entity.NPC_student2;
 import object.*;
 
 public class AssetSetter {
@@ -223,15 +225,23 @@ public class AssetSetter {
         gp.obj[2][1].worldX = 8 * gp.tileSize;
         gp.obj[2][1].worldY = 32 * gp.tileSize;*/
     }
-    public void setNPC(){
+    public void setNPC() {
         int mapNum = 0;
-        gp.npc[mapNum][0]=new NPC_Student(gp);
-        gp.npc[mapNum][0].worldX= gp.tileSize*30;
-        gp.npc[mapNum][0].worldY= gp.tileSize*15;
+        gp.npc[mapNum][0] = new NPC_Student(gp);
+        gp.npc[mapNum][0].worldX = gp.tileSize * 30;
+        gp.npc[mapNum][0].worldY = gp.tileSize * 15;
 
         //NPC_1
-        gp.npc[mapNum][1]=new NPC_student1(gp);
-        gp.npc[mapNum][1].worldX= gp.tileSize*2;
-        gp.npc[mapNum][1].worldY= gp.tileSize*15;
-    }
-}
+        gp.npc[mapNum][1] = new NPC_student1(gp);
+        gp.npc[mapNum][1].worldX = gp.tileSize * 7;
+        gp.npc[mapNum][1].worldY = gp.tileSize * 7;
+
+        //NPC_2
+        gp.npc[mapNum][2] = new NPC_student2(gp);
+        gp.npc[mapNum][2].worldX = gp.tileSize * 14;
+        gp.npc[mapNum][2].worldY = gp.tileSize * 16;
+        //NPC_Amber
+        gp.npc[mapNum][3] = new NPC_Amber(gp);
+        gp.npc[mapNum][3].worldX = gp.tileSize * 2;
+        gp.npc[mapNum][3].worldY = gp.tileSize * 15;
+    }}
