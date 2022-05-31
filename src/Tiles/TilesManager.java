@@ -32,6 +32,8 @@ public class TilesManager {
         loadMap("/maps/room_1.txt",1);
 
         loadMap("/maps/2nd_floor_map.txt",2);
+        loadMap("/maps/3rd_floor_map.txt",3);
+        loadMap("/maps/elevator_left_1.txt",4);
     }
     public void getTileImage(){
             setUpMap(0,"/tiles/others/path.png", false);
@@ -86,6 +88,30 @@ public class TilesManager {
 
             // gate and stairs
             setUpMap(41, "/tiles/gate/gate_stair_1.png",false);
+            setUpMap(42, "/tiles/others/vending_machine_1.png",true);
+            setUpMap(43, "/tiles/others/vending_machine_2.png",true);
+
+            setUpMap(44, "/tiles/gate/gate_stair_2.png",false);
+            setUpMap(45, "/tiles/gate/gate_stair_3.png",false);
+            setUpMap(46, "/tiles/gate/gate_stair_4.png",false);
+            //ELEVATOR
+            setUpMap(47, "/tiles/elevator/elevator_floor.png",false);
+            setUpMap(48, "/tiles/elevator/elevator_wall.png",true);
+            setUpMap(49, "/tiles/elevator/elevator_roof_0.png",true);
+            setUpMap(50, "/tiles/elevator/elevator_roof_1.png",true);
+            setUpMap(51, "/tiles/elevator/elevator_roof_2.png",true);
+            setUpMap(52, "/tiles/elevator/elevator_roof_3.png",true);
+            setUpMap(53, "/tiles/elevator/elevator_roof_4.png",true);
+            setUpMap(54, "/tiles/elevator/elevator_roof_5.png",true);
+            setUpMap(55, "/tiles/elevator/elevator_wall_1.png",true);
+
+            setUpMap(56, "/tiles/elevator/elevator_up.png",false);
+            setUpMap(57, "/tiles/elevator/elevator_down.png",false);
+
+            setUpMap(58, "/tiles/gate/barrier.png",true);
+            setUpMap(59, "/tiles/gate/barrier_1.png",true);
+            setUpMap(60, "/tiles/gate/barrier_2.png",true);
+            setUpMap(61, "/tiles/gate/barrier_3.png",true);
     }
 
     public void setUpMap(int index, String imagePath, boolean collision) {

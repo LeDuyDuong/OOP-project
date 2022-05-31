@@ -3,12 +3,22 @@ package Main;
 import Entity.Entity;
 import Entity.Player;
 import Tiles.TilesManager;
-import object.SuperObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GamePanel extends JPanel implements Runnable{
+
+    public int gameState;
+    public final int tittleState=0;
+    public final int playState = 1;
+    public final int pauseState = 2;
+    public final int dialogueState =3;
+    public final int characterState =4;
 
     final int originalTileSize = 16;
     final int scale = 3;
@@ -30,9 +40,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeight=tileSize*maxWorldRow;
 
     //GAME STATE
-    public int gameState;
-    public final int playState = 1;
-    public final int pauseState = 2;
+
+
     public EventHandler eHandler = new EventHandler(this);
 
     Sound sound = new Sound();            //SOUND
@@ -47,11 +56,14 @@ public class GamePanel extends JPanel implements Runnable{
     public AssetSetter aSetter = new AssetSetter(this);
     public Player player = new Player(this,keyHandler);
 
-    //initialize 10 objects in same time
-    public SuperObject obj[][] = new SuperObject[maxMap][10];
+    //initialize 40 objects in same time
+    public Entity obj[][] = new Entity[maxMap][40];
+
+    //initialize 20 npc in same time
     public  Entity npc[][]=new Entity[maxMap][20];
+    ArrayList<Entity>entityList= new ArrayList<>();
     //Game State
-    public final int dialogueState =3;
+
 
     //initial position
     int playerX = 100;
@@ -66,13 +78,13 @@ public class GamePanel extends JPanel implements Runnable{
 
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
-        playMusic(0);
+        //playMusic(0);
     }
 
     public void setupGame(){
         aSetter.setObject();
         aSetter.setNPC();
-        gameState = playState;
+        gameState = tittleState ;
     }
 
     public void startGameThread() {
@@ -112,7 +124,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
         if (gameState == pauseState) {
-
+            //do notthing
         }
     }
 
@@ -121,26 +133,43 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
+        if(gameState== tittleState){
+            ui.draw(g2);
+        }else{
             //tile
-        tilesM.draw(g2);
-
-        //object
-        for(int i =0 ; i < obj[1].length ; i++){
-            if(obj[currentMap][i] != null){
-                obj[currentMap][i].draw(g2, this);
+            tilesM.draw(g2);
+            entityList.add(player);
+            for(int i=0;i<npc[currentMap].length;i++){
+                if(npc[currentMap][i]!=null){
+                    entityList.add(npc[currentMap][i]);
+                }
             }
-        }
-        //npc
-        for(int i =0 ; i < npc[1].length ; i++){
-            if(npc[currentMap][i] != null){
-                npc[currentMap][i].draw(g2);
+
+            for(int i=0;i<obj[currentMap].length;i++){
+                if(obj[currentMap][i]!=null){
+                    entityList.add(obj[currentMap][i]);
+                }
             }
+
+            Collections.sort(entityList, new Comparator<Entity>() {
+                @Override
+                public int compare(Entity o1, Entity o2) {
+                    int result= Integer.compare(o1.worldY, o2.worldY);
+                    return result;
+                }
+            });
+
+            //Draw Entities
+            for(int i=0 ;i<entityList.size();i++){
+                entityList.get(i).draw(g2);
+            }
+            for(int i=0 ;i<entityList.size();i++){
+                entityList.remove(i);
+            }
+            ui.draw(g2);
         }
 
-        //player
-        player.draw(g2);
-        //UI
-        ui.draw(g2);
+
 
         if(keyHandler.showDebugText==true){
             g2.setFont(new Font("Arial",Font.PLAIN, 20));
