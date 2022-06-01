@@ -5,6 +5,7 @@ import Main.KeyHandler;
 import Main.UtilityTool;
 import object.OBJ_Chest;
 import object.OBJ_Coffee_cup;
+import object.OBJ_Coin;
 import object.OBJ_Key;
 
 import javax.imageio.ImageIO;
@@ -17,6 +18,7 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
     int hasKey = 0;
+    public int hasCoin=2;
     public ArrayList<Entity> inventory= new ArrayList<>();
     public final int inventorySize=20;
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -63,7 +65,9 @@ public class Player extends Entity{
     }
 
     public void setItems(){
-        //inventory.add(new OBJ_Key(gp));
+        inventory.add(new OBJ_Coin(gp));
+        inventory.add(new OBJ_Coin(gp));
+        inventory.add(new OBJ_Coin(gp));
         //inventory.add(new OBJ_Chest(gp));
         //inventory.add(new OBJ_Key(gp));
         //inventory.add(new OBJ_Key(gp));
@@ -151,9 +155,15 @@ public class Player extends Entity{
                     System.out.println("Key:" + hasKey);
                     break;
                 case "Cup of Coffee":
-                    inventory.add(new OBJ_Coffee_cup(gp));
                     gp.obj[gp.currentMap][i] = null;
+                    inventory.add(new OBJ_Coffee_cup(gp));
                     break;
+                case "Coin":
+                    hasCoin++;
+                    inventory.add(new OBJ_Coin(gp));
+                    gp.obj[gp.currentMap][i] = null;
+
+
             }
         }
     }

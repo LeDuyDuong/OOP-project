@@ -61,6 +61,9 @@ public class UI {
         if(gp.gameState== gp.buyingState){
             drawBuyingScreen();
         }
+        if(gp.gameState==gp.messageState){
+            drawMessage(message);
+        }
     }
     public void drawTittleScreen(){
         g2.setColor(Color.black);
@@ -199,13 +202,13 @@ public class UI {
 
         int textX= dframeX+20;
         int textY = dframeY+gp.tileSize;
-        g2.setFont(g2.getFont().deriveFont(28F));
+        g2.setFont(g2.getFont().deriveFont(20F));
         int itemIndex=getItemIndexOnSlot();
 
         if(itemIndex<gp.player.inventory.size()){
             for(String line: gp.player.inventory.get(itemIndex).description.split("\n")){
                 g2.drawString(line,textX,textY);
-                textY+=32;
+                textY+=30;
             }
         }
     }
@@ -257,5 +260,23 @@ public class UI {
             g2.drawString(">", x-gp.tileSize,y);
         }
 
+    }
+    public void drawMessage(String message){
+        int x=gp.tileSize*2;
+        int y=gp.tileSize/2;
+        int width=gp.screenWidth-(gp.tileSize*4);
+        int height= gp.tileSize*4;
+        drawSubWindow(x,y,width,height);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,20F));
+        x+=gp.tileSize-20;
+        y+=gp.tileSize;
+        for(String line: message.split("\n")){
+            g2.drawString(line,x,y);
+            y+=40;
+        }
+    }
+
+    public void setMessage(String x){
+        message=x;
     }
 }

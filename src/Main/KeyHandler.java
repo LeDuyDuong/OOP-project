@@ -1,5 +1,9 @@
 package Main;
 
+import Entity.Entity;
+import object.OBJ_Coffee_cup;
+import object.OBJ_Coin;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -138,6 +142,7 @@ public class KeyHandler implements KeyListener {
                     gp.ui.slotCol++;
                 }
             }
+            //buying State
         } else if (gp.gameState==gp.buyingState) {
             if(code == KeyEvent.VK_UP) {
                 gp.ui.commandNum--;
@@ -153,14 +158,33 @@ public class KeyHandler implements KeyListener {
             }
             if(code==KeyEvent.VK_ENTER){
                 if(gp.ui.commandNum==0){
-                    gp.gameState= gp.playState;
-                    //gp.playMusic(0);
+                    gp.gameState=gp.messageState;
+                    if(gp.player.hasCoin>0){
+                        gp.ui.setMessage("BOUGHT 1 CUP OF COFFEE, CHECK YOUR INVENTORY");
+                        gp.player.inventory.add(new OBJ_Coffee_cup(gp));
+                        gp.player.hasCoin--;
+                        for(Entity ent : gp.player.inventory){
+                            if(ent instanceof OBJ_Coin){
+                                gp.player.inventory.remove(ent);
+                                break;
+                            }
+                        }
+
+                    }else if(gp.player.hasCoin==0){
+                        gp.ui.setMessage("NOT ENOUGH COIN");
+                    }
                 }
                 if(gp.ui.commandNum==1){
-                    gp.gameState=gp.tittleState;
-                    gp.sound.stop();
+                    gp.gameState=gp.playState;
+                    //gp.sound.stop();
                     gp.ui.commandNum=0;
                 }
+            }
+        }
+        //Message State
+        else if (gp.gameState==gp.messageState) {
+            if(code==KeyEvent.VK_ENTER){
+                gp.gameState= gp.playState;
             }
         }
 
