@@ -12,5 +12,6 @@ public class OBJ_Key extends Entity {
         name = "Key";
         down1=setup("/objects/key");
         description= "["+name+"]\n" + " opens a door.";
+        //collision=false;
     }
 }

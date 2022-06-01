@@ -62,10 +62,10 @@ public class Player extends Entity{
     }
 
     public void setItems(){
-        inventory.add(new OBJ_Key(gp));
+        //inventory.add(new OBJ_Key(gp));
         //inventory.add(new OBJ_Chest(gp));
-        inventory.add(new OBJ_Key(gp));
-        inventory.add(new OBJ_Key(gp));
+        //inventory.add(new OBJ_Key(gp));
+        //inventory.add(new OBJ_Key(gp));
 
     }
     public void update() {
@@ -137,9 +137,10 @@ public class Player extends Entity{
 
             switch (objectName){
                 case "Key":
-                    hasKey++;
                     gp.obj[gp.currentMap][i] = null;
+                    hasKey++;
                     System.out.println("Key:" + hasKey);
+                    inventory.add(new OBJ_Key(gp));
                     break;
                 case "Door":
                     if(hasKey>0) {

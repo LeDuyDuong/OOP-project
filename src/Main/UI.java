@@ -14,6 +14,9 @@ public class UI {
     public String message =  "";
     public String currentDialogue="";
     public int commandNum= 0;
+    public int slotCol=0;
+    public int slotRow=0;
+    int counter=0;
     public UI (GamePanel gp) {
         this.gp = gp;
         arial_40 =  new Font("Arial", Font.PLAIN, 40);
@@ -48,6 +51,10 @@ public class UI {
         if(gp.gameState== gp.characterState){
             drawInventory();
         }
+        //transitionState
+        if(gp.gameState==gp.transitionState){
+            drawTransition();
+        }
     }
     public void drawTittleScreen(){
         g2.setColor(Color.black);
@@ -72,7 +79,7 @@ public class UI {
         g2.drawImage(gp.player.down1, x, y, gp.tileSize*2, gp.tileSize*2, null);
         //MENU
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
-        Text= "START";
+        Text= "PLAY";
         x=getXForCenteredText(Text);
         y+=gp.tileSize*3.5;
         g2.drawString(Text, x, y);
@@ -111,7 +118,7 @@ public class UI {
 
     }
     public void drawSubWindow(int x,int y, int width,int height){
-        Color c=new Color(0,0,0,200);
+        Color c=new Color(0,0,0,150);
         g2.setColor(c);
         g2.fillRoundRect(x,y,width,height,35,35);
         c = new Color(255,255,255);
@@ -120,17 +127,34 @@ public class UI {
         g2.drawRoundRect(x+5,y+5,width-10,height-10,25,25);
     }
     public void drawPauseScreen() {
+        drawSubWindow(120,40, 500, 500);
         this.g2.setFont(g2.getFont().deriveFont(Font.PLAIN,80F));
+        g2.setColor(Color.WHITE);
         String text = "PAUSED";
         int x = getXForCenteredText(text);
-        int y = gp.screenHeight/2;
+        int y = gp.tileSize*3;
         g2.drawString(text,x,y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
+        String Text= "CONTINUE";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize*3.5;
+        g2.drawString(Text, x, y);
+        if(commandNum==0){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+        Text= "BACK TO MENU";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        if(commandNum==1){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+
     }
-    int slotCol=0;
-    int slotRow=0;
+
     public void drawInventory(){
-//        slotRow=0;
-//        slotCol=0;
+        //slotRow=0;
+        //slotCol=0;
         //Frame
         int frameX=gp.tileSize*10;
         int frameY=gp.tileSize;
@@ -188,5 +212,21 @@ public class UI {
         int length  = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();
         int x = gp.screenWidth/2 - length/2;
         return x;
+    }
+
+    public void drawTransition(){
+        counter++;
+        g2.setColor(new Color(0,0,0,counter*5));
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+
+        if(counter==50){
+            counter=0;
+            gp.gameState= gp.playState;
+            gp.currentMap=gp.eHandler.tempMap;
+            gp.player.worldX=gp.tileSize*gp.eHandler.tempCol;
+            gp.player.worldY=gp.tileSize*gp.eHandler.tempRow;
+            gp.eHandler.previousEventX=gp.player.worldX;
+            gp.eHandler.previousEventY=gp.player.worldY;
+        }
     }
 }

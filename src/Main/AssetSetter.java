@@ -1,7 +1,9 @@
 package Main;
 
+import Entity.NPC_Amber;
 import Entity.NPC_Student;
 import Entity.NPC_student1;
+import Entity.NPC_student2;
 import object.*;
 
 public class AssetSetter {
@@ -32,14 +34,19 @@ public class AssetSetter {
         gp.obj[mapNum][3].worldX = 16 * gp.tileSize;
         gp.obj[mapNum][3].worldY = 17 * gp.tileSize;
 
+        //Vending machine
+        gp.obj[mapNum][4] = new OBJ_Vending_Machine(gp);
+        gp.obj[mapNum][4].worldX = 25 * gp.tileSize;
+        gp.obj[mapNum][4].worldY = 25 * gp.tileSize;
+
         //Elevator
-        gp.obj[mapNum][4] = new OBJ_Elevator_Up(gp);
+        /*gp.obj[mapNum][4] = new OBJ_Elevator_Up(gp);
         gp.obj[mapNum][4].worldX = 8 * gp.tileSize;
         gp.obj[mapNum][4].worldY = 31 * gp.tileSize;
 
         gp.obj[mapNum][5] = new OBJ_Elevator_First(gp);
         gp.obj[mapNum][5].worldX = 8 * gp.tileSize;
-        gp.obj[mapNum][5].worldY = 32 * gp.tileSize;
+        gp.obj[mapNum][5].worldY = 32 * gp.tileSize;*/
 
 
         /* Room 1 */
@@ -212,26 +219,36 @@ public class AssetSetter {
         gp.obj[1][38].worldX = 17 * gp.tileSize;
         gp.obj[1][38].worldY = 8 * gp.tileSize;
 
+
         /* Map 2 */
 
         //Elevator
-        gp.obj[2][0] = new OBJ_Elevator_Down(gp);
+        /*gp.obj[2][0] = new OBJ_Elevator_Down(gp);
         gp.obj[2][0].worldX = 8 * gp.tileSize;
         gp.obj[2][0].worldY = 31 * gp.tileSize;
 
         gp.obj[2][1] = new OBJ_Elevator_Ground(gp);
         gp.obj[2][1].worldX = 8 * gp.tileSize;
-        gp.obj[2][1].worldY = 32 * gp.tileSize;
+        gp.obj[2][1].worldY = 32 * gp.tileSize;*/
     }
-    public void setNPC(){
+    public void setNPC() {
         int mapNum = 0;
-        gp.npc[mapNum][0]=new NPC_Student(gp);
-        gp.npc[mapNum][0].worldX= gp.tileSize*30;
-        gp.npc[mapNum][0].worldY= gp.tileSize*15;
+        gp.npc[mapNum][0] = new NPC_Student(gp);
+        gp.npc[mapNum][0].worldX = gp.tileSize * 30;
+        gp.npc[mapNum][0].worldY = gp.tileSize * 15;
 
         //NPC_1
-        gp.npc[mapNum][1]=new NPC_student1(gp);
-        gp.npc[mapNum][1].worldX= gp.tileSize*2;
-        gp.npc[mapNum][1].worldY= gp.tileSize*15;
+        gp.npc[mapNum][1] = new NPC_student1(gp);
+        gp.npc[mapNum][1].worldX = gp.tileSize * 7;
+        gp.npc[mapNum][1].worldY = gp.tileSize * 7;
+
+        //NPC_2
+        gp.npc[mapNum][2] = new NPC_student2(gp);
+        gp.npc[mapNum][2].worldX = gp.tileSize * 14;
+        gp.npc[mapNum][2].worldY = gp.tileSize * 16;
+        //NPC_Amber
+        gp.npc[mapNum][3] = new NPC_Amber(gp);
+        gp.npc[mapNum][3].worldX = gp.tileSize * 2;
+        gp.npc[mapNum][3].worldY = gp.tileSize * 15;
     }
 }
