@@ -1,5 +1,7 @@
 package Main;
 
+import Entity.Entity;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -17,6 +19,7 @@ public class UI {
     public int slotCol=0;
     public int slotRow=0;
     int counter=0;
+    public Entity npc;
     public UI (GamePanel gp) {
         this.gp = gp;
         arial_40 =  new Font("Arial", Font.PLAIN, 40);
@@ -45,7 +48,6 @@ public class UI {
         // dialogue state
         if(gp.gameState==gp.dialogueState) {
             drawDialogueScreen();
-
         }
         //player State
         if(gp.gameState== gp.characterState){
@@ -54,6 +56,10 @@ public class UI {
         //transitionState
         if(gp.gameState==gp.transitionState){
             drawTransition();
+        }
+        //buyingState
+        if(gp.gameState== gp.buyingState){
+            drawBuyingScreen();
         }
     }
     public void drawTittleScreen(){
@@ -108,7 +114,7 @@ public class UI {
         int width=gp.screenWidth-(gp.tileSize*4);
         int height= gp.tileSize*4;
         drawSubWindow(x,y,width,height);
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,28F));
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,20F));
         x+=gp.tileSize;
         y+=gp.tileSize;
         for(String line: currentDialogue.split("\n")){
@@ -228,5 +234,28 @@ public class UI {
             gp.eHandler.previousEventX=gp.player.worldX;
             gp.eHandler.previousEventY=gp.player.worldY;
         }
+    }
+
+    public void drawBuyingScreen(){
+
+        gp.keyHandler.enterPressed=false;
+        drawDialogueScreen();
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+        String Text= "YES";
+        int x= getXForCenteredText(Text);
+        int y= gp.tileSize*3;
+        x=getXForCenteredText(Text);
+        g2.drawString(Text, x, y);
+        if(commandNum==0){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+        Text= "NO";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        if(commandNum==1){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+
     }
 }

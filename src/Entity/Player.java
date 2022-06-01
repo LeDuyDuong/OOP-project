@@ -4,6 +4,7 @@ import Main.GamePanel;
 import Main.KeyHandler;
 import Main.UtilityTool;
 import object.OBJ_Chest;
+import object.OBJ_Coffee_cup;
 import object.OBJ_Key;
 
 import javax.imageio.ImageIO;
@@ -148,6 +149,10 @@ public class Player extends Entity{
                         hasKey--;
                     }
                     System.out.println("Key:" + hasKey);
+                    break;
+                case "Cup of Coffee":
+                    inventory.add(new OBJ_Coffee_cup(gp));
+                    gp.obj[gp.currentMap][i] = null;
                     break;
             }
         }
