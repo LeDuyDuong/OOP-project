@@ -16,8 +16,10 @@ public class AssetSetter {
     //set position of object
     public void setObject(){
         /* Map 1 */
+
         //key 1
         int mapNum = 0;
+        /*
         gp.obj[mapNum][0] = new OBJ_Key(gp);
         gp.obj[mapNum][0].worldX = 16 * gp.tileSize;
         gp.obj[mapNum][0].worldY = 26 * gp.tileSize;
@@ -33,7 +35,7 @@ public class AssetSetter {
         gp.obj[mapNum][3] = new OBJ_Chest(gp);
         gp.obj[mapNum][3].worldX = 16 * gp.tileSize;
         gp.obj[mapNum][3].worldY = 17 * gp.tileSize;
-
+        */
         //Vending machine
         gp.obj[mapNum][4] = new OBJ_Vending_Machine(gp);
         gp.obj[mapNum][4].worldX = 25 * gp.tileSize;
@@ -219,6 +221,10 @@ public class AssetSetter {
         gp.obj[1][38].worldX = 17 * gp.tileSize;
         gp.obj[1][38].worldY = 8 * gp.tileSize;
 
+        //paper
+        gp.obj[1][39] = new OBJ_Paper(gp);
+        gp.obj[1][39].worldX = 13 * gp.tileSize;
+        gp.obj[1][39].worldY = 8 * gp.tileSize;
 
         /* Map 2 */
 
