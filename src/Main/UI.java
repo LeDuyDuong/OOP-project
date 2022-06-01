@@ -216,7 +216,7 @@ public class UI {
 
     public void drawTransition(){
         counter++;
-        g2.setColor(new Color(0,0,0,counter*10));
+        g2.setColor(new Color(0,0,0,counter*5));
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
 
         if(counter==50){
