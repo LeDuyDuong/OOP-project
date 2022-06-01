@@ -19,6 +19,9 @@ public class GamePanel extends JPanel implements Runnable{
     public final int pauseState = 2;
     public final int dialogueState =3;
     public final int characterState =4;
+    public final int transitionState=5;
+
+    public final int buyingState=6;
 
     final int originalTileSize = 16;
     final int scale = 3;
@@ -57,7 +60,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player = new Player(this,keyHandler);
 
     //initialize 40 objects in same time
-    public Entity obj[][] = new Entity[maxMap][40];
+    public Entity obj[][] = new Entity[maxMap][50];
 
     //initialize 20 npc in same time
     public  Entity npc[][]=new Entity[maxMap][20];

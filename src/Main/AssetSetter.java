@@ -34,6 +34,11 @@ public class AssetSetter {
         gp.obj[mapNum][3].worldX = 16 * gp.tileSize;
         gp.obj[mapNum][3].worldY = 17 * gp.tileSize;
 
+        //Vending machine
+        gp.obj[mapNum][4] = new OBJ_Vending_Machine(gp);
+        gp.obj[mapNum][4].worldX = 25 * gp.tileSize;
+        gp.obj[mapNum][4].worldY = 25 * gp.tileSize;
+
         //Elevator
         /*gp.obj[mapNum][4] = new OBJ_Elevator_Up(gp);
         gp.obj[mapNum][4].worldX = 8 * gp.tileSize;
@@ -214,6 +219,7 @@ public class AssetSetter {
         gp.obj[1][38].worldX = 17 * gp.tileSize;
         gp.obj[1][38].worldY = 8 * gp.tileSize;
 
+
         /* Map 2 */
 
         //Elevator
@@ -244,4 +250,5 @@ public class AssetSetter {
         gp.npc[mapNum][3] = new NPC_Amber(gp);
         gp.npc[mapNum][3].worldX = gp.tileSize * 2;
         gp.npc[mapNum][3].worldY = gp.tileSize * 15;
-    }}
+    }
+}

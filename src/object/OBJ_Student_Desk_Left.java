@@ -14,5 +14,7 @@ public class OBJ_Student_Desk_Left extends Entity {
         down1=setup("/objects/desk-left");
         collision = true;
     }
+
+
 }
 

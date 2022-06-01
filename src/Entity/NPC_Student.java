@@ -2,6 +2,7 @@ package Entity;
 
 import Main.GamePanel;
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.io.IOException;
 import java.util.Random;
 
@@ -12,6 +13,13 @@ public class NPC_Student extends Entity{
         direction ="down";
         speed=2;
         setImage();
+        solidArea = new Rectangle();
+        solidArea.x= 8;
+        solidArea.y=16;
+        solidAreaDefaultX=solidArea.x;
+        solidAreaDefaultY=solidArea.y;
+        solidArea.width=32;
+        solidArea.height=32;
 
     }
     public void setImage() {

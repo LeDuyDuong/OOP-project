@@ -88,7 +88,8 @@ public class TilesManager {
 
             // gate and stairs
             setUpMap(41, "/tiles/gate/gate_stair_1.png",false);
-            setUpMap(42, "/tiles/others/vending_machine_1.png",true);
+            //
+            //setUpMap(42, "/objects/vending_machine_1.png",true);
             setUpMap(43, "/tiles/others/vending_machine_2.png",true);
 
             setUpMap(44, "/tiles/gate/gate_stair_2.png",false);

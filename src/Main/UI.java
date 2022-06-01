@@ -14,6 +14,9 @@ public class UI {
     public String message =  "";
     public String currentDialogue="";
     public int commandNum= 0;
+    public int slotCol=0;
+    public int slotRow=0;
+    int counter=0;
     public UI (GamePanel gp) {
         this.gp = gp;
         arial_40 =  new Font("Arial", Font.PLAIN, 40);
@@ -47,6 +50,10 @@ public class UI {
         //player State
         if(gp.gameState== gp.characterState){
             drawInventory();
+        }
+        //transitionState
+        if(gp.gameState==gp.transitionState){
+            drawTransition();
         }
     }
     public void drawTittleScreen(){
@@ -144,11 +151,10 @@ public class UI {
         }
 
     }
-    int slotCol=0;
-    int slotRow=0;
+
     public void drawInventory(){
-//        slotRow=0;
-//        slotCol=0;
+        //slotRow=0;
+        //slotCol=0;
         //Frame
         int frameX=gp.tileSize*10;
         int frameY=gp.tileSize;
@@ -206,5 +212,21 @@ public class UI {
         int length  = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();
         int x = gp.screenWidth/2 - length/2;
         return x;
+    }
+
+    public void drawTransition(){
+        counter++;
+        g2.setColor(new Color(0,0,0,counter*10));
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+
+        if(counter==50){
+            counter=0;
+            gp.gameState= gp.playState;
+            gp.currentMap=gp.eHandler.tempMap;
+            gp.player.worldX=gp.tileSize*gp.eHandler.tempCol;
+            gp.player.worldY=gp.tileSize*gp.eHandler.tempRow;
+            gp.eHandler.previousEventX=gp.player.worldX;
+            gp.eHandler.previousEventY=gp.player.worldY;
+        }
     }
 }

@@ -3,11 +3,13 @@ package Main;
 import java.awt.*;
 
 public class EventHandler {
+
     GamePanel gp;
     EventRectangle eventRect[][][];
     //int eventRectDefaultX, eventRectDefaultY;
     int previousEventX, previousEventY;
     boolean canTouchEvent = true;
+    int tempMap, tempCol, tempRow;
 
     public EventHandler(GamePanel gp) {
         this.gp=gp;
@@ -82,18 +84,19 @@ public class EventHandler {
             else if (hit(0,26,31,"left")==true) {teleport(2,26,31);} // 1-2
             else if (hit(3,26,32,"left")==true) {teleport(2,26,32);} // 3-2
             //else if (hit(0,26,32,"left")==true) {teleport(2,26,32);}
-
+            else if (hit(0,26,26,"any")==true){
+                gp.ui.drawSubWindow(120,40, 500, 500);
+            }
 
 
         }
     }
 
     public void teleport(int map, int col, int row) {
-        gp.currentMap  = map;
-        gp.player.worldX = gp.tileSize*col;
-        gp.player.worldY = gp.tileSize*row;
-        previousEventX = gp.player.worldX;
-        previousEventY = gp.player.worldY;
+        gp.gameState= gp.transitionState;
+        tempMap = map;
+        tempCol=col;
+        tempRow=row;
         canTouchEvent = false;
     }
 
