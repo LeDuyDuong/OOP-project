@@ -36,7 +36,7 @@ public class Entity {
     }
     public void setAction(){}
     public void speak(){
-        if(dialogues[dialogueIndex]==null){
+        if(dialogues[dialogueIndex+1]==null){
             dialogueIndex=0;
         }
         gp.ui.currentDialogue=dialogues[dialogueIndex];

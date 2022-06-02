@@ -1,9 +1,6 @@
 package Main;
 
-import Entity.NPC_Amber;
-import Entity.NPC_Student;
-import Entity.NPC_student1;
-import Entity.NPC_student2;
+import Entity.*;
 import object.*;
 
 public class AssetSetter {
@@ -19,27 +16,27 @@ public class AssetSetter {
 
         //key 1
         int mapNum = 0;
+        gp.obj[mapNum][0] = new OBJ_Coffee_cup(gp);
+        gp.obj[mapNum][0].worldX = 7 * gp.tileSize;
+        gp.obj[mapNum][0].worldY = 17 * gp.tileSize;
         /*
         gp.obj[mapNum][0] = new OBJ_Key(gp);
         gp.obj[mapNum][0].worldX = 16 * gp.tileSize;
         gp.obj[mapNum][0].worldY = 26 * gp.tileSize;
         //key 2
-        gp.obj[mapNum][1] = new OBJ_Key(gp);
-        gp.obj[mapNum][1].worldX = 16 * gp.tileSize;
-        gp.obj[mapNum][1].worldY = 7 * gp.tileSize;
+//        gp.obj[mapNum][1] = new OBJ_Key(gp);
+//        gp.obj[mapNum][1].worldX = 16 * gp.tileSize;
+//        gp.obj[mapNum][1].worldY = 7 * gp.tileSize;
         //door 3
-        gp.obj[mapNum][2] = new OBJ_Door(gp);
-        gp.obj[mapNum][2].worldX = 13 * gp.tileSize;
-        gp.obj[mapNum][2].worldY = 7 * gp.tileSize;
+//        gp.obj[mapNum][2] = new OBJ_Door(gp);
+//        gp.obj[mapNum][2].worldX = 13 * gp.tileSize;
+//        gp.obj[mapNum][2].worldY = 7 * gp.tileSize;
         //chest 4
-        gp.obj[mapNum][3] = new OBJ_Chest(gp);
-        gp.obj[mapNum][3].worldX = 16 * gp.tileSize;
-        gp.obj[mapNum][3].worldY = 17 * gp.tileSize;
-        */
+        
         //Vending machine
-        gp.obj[mapNum][4] = new OBJ_Vending_Machine(gp);
-        gp.obj[mapNum][4].worldX = 25 * gp.tileSize;
-        gp.obj[mapNum][4].worldY = 25 * gp.tileSize;
+//        gp.obj[mapNum][4] = new OBJ_Vending_Machine(gp);
+//        gp.obj[mapNum][4].worldX = 25 * gp.tileSize;
+//        gp.obj[mapNum][4].worldY = 25 * gp.tileSize;
 
         //Paper
         gp.obj[mapNum][5] = new OBJ_Paper_Yellow(gp);
@@ -54,7 +51,10 @@ public class AssetSetter {
         gp.obj[mapNum][5] = new OBJ_Elevator_First(gp);
         gp.obj[mapNum][5].worldX = 8 * gp.tileSize;
         gp.obj[mapNum][5].worldY = 32 * gp.tileSize;*/
-
+      
+        gp.obj[mapNum][5] = new OBJ_Paper_Yellow(gp);
+        gp.obj[mapNum][5].worldX = 18 * gp.tileSize;
+        gp.obj[mapNum][5].worldY = 17 * gp.tileSize;
 
         /* Room 1 */
         //Desk 1
@@ -261,5 +261,10 @@ public class AssetSetter {
         gp.npc[mapNum][3] = new NPC_Amber(gp);
         gp.npc[mapNum][3].worldX = gp.tileSize * 2;
         gp.npc[mapNum][3].worldY = gp.tileSize * 15;
+
+        //semi-NPC vending machine
+        gp.npc[mapNum][3] = new OBJ_Vending_Machine(gp);
+        gp.npc[mapNum][3].worldX = gp.tileSize * 25;
+        gp.npc[mapNum][3].worldY = gp.tileSize * 25;
     }
 }
