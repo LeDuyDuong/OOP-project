@@ -113,6 +113,23 @@ public class TilesManager {
             setUpMap(59, "/tiles/gate/barrier_1.png",true);
             setUpMap(60, "/tiles/gate/barrier_2.png",true);
             setUpMap(61, "/tiles/gate/barrier_3.png",true);
+
+            // Room1 decoration
+            setUpMap(62, "/tiles/class-decoration/desk-left.png",true);
+            setUpMap(63, "/tiles/class-decoration/desk-middle.png",true);
+            setUpMap(64, "/tiles/class-decoration/desk-right.png",true);
+            setUpMap(65, "/tiles/class-decoration/student-chair.png",true);
+            setUpMap(66, "/tiles/class-decoration/teacher-table-left.png",true);
+            setUpMap(67, "/tiles/class-decoration/teacher-table-right.png",true);
+            setUpMap(68, "/tiles/class-decoration/teacher-chair.png",true);
+
+            //board
+            setUpMap(69, "/tiles/class-decoration/board-border-left-up.png",true);
+            setUpMap(70, "/tiles/class-decoration/board-border-left-down.png",true);
+            setUpMap(71, "/tiles/class-decoration/board-border-right-up.png",true);
+            setUpMap(72, "/tiles/class-decoration/board-border-right-down.png",true);
+            setUpMap(73, "/tiles/class-decoration/board-border-up.png",true);
+            setUpMap(74, "/tiles/class-decoration/board-border-down.png",true);
     }
 
     public void setUpMap(int index, String imagePath, boolean collision) {
