@@ -122,6 +122,14 @@ public class TilesManager {
             setUpMap(66, "/tiles/class-decoration/teacher-table-left.png",true);
             setUpMap(67, "/tiles/class-decoration/teacher-table-right.png",true);
             setUpMap(68, "/tiles/class-decoration/teacher-chair.png",true);
+
+            //board
+            setUpMap(69, "/tiles/class-decoration/board-border-left-up.png",true);
+            setUpMap(70, "/tiles/class-decoration/board-border-left-down.png",true);
+            setUpMap(71, "/tiles/class-decoration/board-border-right-up.png",true);
+            setUpMap(72, "/tiles/class-decoration/board-border-right-down.png",true);
+            setUpMap(73, "/tiles/class-decoration/board-border-up.png",true);
+            setUpMap(74, "/tiles/class-decoration/board-border-down.png",true);
     }
 
     public void setUpMap(int index, String imagePath, boolean collision) {

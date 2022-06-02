@@ -8,6 +8,10 @@ public class OBJ_Paper extends Entity {
         super(gp);
         name = "Paper";
         down1=setup("/objects/paper");
-        collision = true;
+        //collision = false;
+        description= "roses are heads\n" +
+                "violet are shoes\n" +
+                "his skin is black\n" +
+                "and his shirt is blue";
     }
 }
