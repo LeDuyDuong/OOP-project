@@ -125,14 +125,14 @@ public class GamePanel extends JPanel implements Runnable{
         }
         //npc
         for(int i=0;i<npc[1].length;i++){
-            if(npc[currentMap][i]!=null){
-                npc[currentMap][i].update();
+           if(npc[currentMap][i]!=null){
+              npc[currentMap][i].update();
             }
-        }
-        if (gameState == pauseState) {
-            //do notthing
-        }
-    }
+       }
+       if (gameState == pauseState) {
+           //do notthing
+       }
+   }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -144,6 +144,7 @@ public class GamePanel extends JPanel implements Runnable{
         }else{
             //tile
             tilesM.draw(g2);
+            //Add entities to the list
             entityList.add(player);
             for(int i=0;i<npc[1].length;i++){
                 if(npc[currentMap][i]!=null){
@@ -156,6 +157,7 @@ public class GamePanel extends JPanel implements Runnable{
                     entityList.add(obj[currentMap][i]);
                 }
             }
+            //sort
 
             Collections.sort(entityList, new Comparator<Entity>() {
                 @Override
@@ -169,6 +171,7 @@ public class GamePanel extends JPanel implements Runnable{
             for(int i=0 ;i<entityList.size();i++){
                 entityList.get(i).draw(g2);
             }
+            //Empty Entity List
             for(int i=0 ;i<entityList.size();i++){
                 entityList.remove(i);
             }

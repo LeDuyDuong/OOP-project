@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.Random;
 
 
-public class NPC_Student extends Entity{
-    public NPC_Student(GamePanel gp){
+public class NPC_student3 extends Entity{
+    public NPC_student3(GamePanel gp){
         super(gp);
         direction ="down";
         speed=2;
@@ -40,25 +40,25 @@ public class NPC_Student extends Entity{
     }
     public void setAction(){
         actionLockCounter++;
-       if(actionLockCounter==200){
-       Random random = new Random();
-        int i= random.nextInt(100)+1;// pick a number for running
-       if(i<=25){
-            direction="up";
-       }
-        if(i>25 && i<+50){
-            direction="down";
-       }
-        if(i>50 && i<=75) {
-           direction="left";
+        if(actionLockCounter==200){
+            Random random = new Random();
+            int i= random.nextInt(100)+1;// pick a number for running
+            if(i<=25){
+                direction="up";
+            }
+            if(i>25 && i<+50){
+                direction="down";
+            }
+            if(i>50 && i<=75) {
+                direction="left";
+            }
+            if(i>75 && i<=100) {
+                direction="right";
+            }
+            actionLockCounter=0;
         }
-       if(i>75 && i<=100) {
-           direction="right";
-       }
-       actionLockCounter=0;
-       }
-        }
-
     }
+
+}
 
 

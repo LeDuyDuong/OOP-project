@@ -266,5 +266,11 @@ public class AssetSetter {
         gp.npc[mapNum][4] = new OBJ_Vending_Machine(gp);
         gp.npc[mapNum][4].worldX = gp.tileSize * 25;
         gp.npc[mapNum][4].worldY = gp.tileSize * 25;
+        // NPC-3
+        mapNum=2;
+
+        gp.npc[mapNum][5] = new NPC_student3(gp);
+        gp.npc[mapNum][5].worldX = gp.tileSize * 2;
+        gp.npc[mapNum][5].worldY = gp.tileSize * 20;
     }
 }
