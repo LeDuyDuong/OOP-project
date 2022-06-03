@@ -143,7 +143,7 @@ public class KeyHandler implements KeyListener {
                 }
             }
             //buying State
-        } else if (gp.gameState==gp.buyingState) {
+        } else if (gp.gameState==gp.tradingState) {
             if(code == KeyEvent.VK_UP) {
                 gp.ui.commandNum--;
                 if(gp.ui.commandNum<0){

@@ -11,5 +11,6 @@ public class OBJ_Elevator_First extends Entity {
         super(gp);
         name = "Elevator_First";
         down1=setup("/objects/first-floor");
+        collision=false;
     }
 }

@@ -2,11 +2,7 @@ package Main;
 
 import Entity.Entity;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.nio.Buffer;
 
 public class UI {
     Graphics2D g2;
@@ -57,8 +53,8 @@ public class UI {
         if(gp.gameState==gp.transitionState){
             drawTransition();
         }
-        //buyingState
-        if(gp.gameState== gp.buyingState){
+        //tradingState
+        if(gp.gameState== gp.tradingState){
             drawBuyingScreen();
         }
         if(gp.gameState==gp.messageState){
@@ -275,6 +271,15 @@ public class UI {
             g2.drawString(line,x,y);
             y+=40;
         }
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+        String Text= "OK";
+        x= getXForCenteredText(Text);
+        y= gp.tileSize*4;
+        x=getXForCenteredText(Text);
+        g2.drawString(">", x-gp.tileSize+20,y);
+        g2.drawString("<", x+gp.tileSize,y);
+        g2.drawString(Text, x, y);
+
     }
 
     public void setMessage(String x){
