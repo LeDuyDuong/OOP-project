@@ -42,7 +42,7 @@ public class TilesManager {
             setUpMap(3,"/tiles/others/blank.png", true);
             setUpMap(4,"/tiles/others/blank2.png",true);
             setUpMap(5,"/tiles/others/wall_right.png",true);
-            setUpMap(6,"/tiles/others/door.png",false);
+            setUpMap(6,"/tiles/others/door.png",true);
             setUpMap(7,"/tiles/others/midtile0.png",false);
             setUpMap(8,"/tiles/others/midtile1.png",false);
             setUpMap(9,"/tiles/others/midtile2.png",false);

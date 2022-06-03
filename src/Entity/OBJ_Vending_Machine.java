@@ -1,6 +1,5 @@
 package Entity;
 
-import Entity.Entity;
 import Main.GamePanel;
 
 import javax.imageio.ImageIO;
@@ -44,6 +43,6 @@ public class OBJ_Vending_Machine extends Entity {
     }
     public void speak(){
         super.speak();
-        gp.gameState= gp.buyingState;
+        gp.gameState= gp.tradingState;
     }
 }

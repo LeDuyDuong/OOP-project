@@ -145,21 +145,28 @@ public class Player extends Entity{
 //                    }
                     //System.out.println("Key:" + hasKey);
                     //break;
-                case "Cup of Coffee":
-                    gp.obj[gp.currentMap][i] = null;
-                    inventory.add(new OBJ_Coffee_cup(gp));
-                    break;
+                //case "Cup of Coffee":
+//                    gp.obj[gp.currentMap][i] = null;
+//                    inventory.add(new OBJ_Coffee_cup(gp));
+//                    break;
                 case "Coin":
-                    hasCoin++;
-                    inventory.add(new OBJ_Coin(gp));
                     gp.obj[gp.currentMap][i] = null;
+                    hasCoin++;
+                    gp.ui.setMessage("YOU FOUND A COIN");
+                    gp.gameState= gp.messageState;
+                    inventory.add(new OBJ_Coin(gp));
+
                     break;
                 case "Paper":
                     inventory.add(new OBJ_Paper(gp));
+                    gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
+                    gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Paper_Yellow":
                     inventory.add(new OBJ_Paper_Yellow(gp));
+                    gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
+                    gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;
                     break;
             }

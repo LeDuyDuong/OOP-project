@@ -8,7 +8,6 @@ import tile_interactive.InteractiveTile;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -22,7 +21,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int characterState =4;
     public final int transitionState=5;
 
-    public final int buyingState=6;
+    public final int tradingState =6;
     public final int messageState=7;
 
     final int originalTileSize = 16;

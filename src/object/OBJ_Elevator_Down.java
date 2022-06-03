@@ -11,5 +11,6 @@ public class OBJ_Elevator_Down extends Entity {
         super(gp);
         name = "Elevator_Down";
         down1=setup("/objects/elevator-down");
+        collision=false;
     }
 }
