@@ -3,6 +3,7 @@ package Main;
 import Entity.Entity;
 import Entity.Player;
 import Tiles.TilesManager;
+import tile_interactive.InteractiveTile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,7 +57,7 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionChecker cChecker = new CollisionChecker(this);
 
     int FPS = 60;
-    TilesManager tilesM = new TilesManager(this);
+    public TilesManager tilesM = new TilesManager(this);
     public AssetSetter aSetter = new AssetSetter(this);
     public Player player = new Player(this,keyHandler);
 
@@ -66,6 +67,7 @@ public class GamePanel extends JPanel implements Runnable{
     //initialize 20 npc in same time
     public  Entity npc[][]=new Entity[maxMap][20];
     ArrayList<Entity>entityList= new ArrayList<>();
+    public InteractiveTile iTile[]=new InteractiveTile[50];
     //Game State
 
 

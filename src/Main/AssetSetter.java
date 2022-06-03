@@ -263,8 +263,8 @@ public class AssetSetter {
         gp.npc[mapNum][3].worldY = gp.tileSize * 15;
 
         //semi-NPC vending machine
-        gp.npc[mapNum][3] = new OBJ_Vending_Machine(gp);
-        gp.npc[mapNum][3].worldX = gp.tileSize * 25;
-        gp.npc[mapNum][3].worldY = gp.tileSize * 25;
+        gp.npc[mapNum][4] = new OBJ_Vending_Machine(gp);
+        gp.npc[mapNum][4].worldX = gp.tileSize * 25;
+        gp.npc[mapNum][4].worldY = gp.tileSize * 25;
     }
 }

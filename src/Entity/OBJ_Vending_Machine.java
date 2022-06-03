@@ -40,7 +40,6 @@ public class OBJ_Vending_Machine extends Entity {
         }
     }
     public void setDialogue(){
-
         dialogues[0]="USE 1 COIN TO BUY 1 CUP OF COFFEE?.";
     }
     public void speak(){
