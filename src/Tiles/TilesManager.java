@@ -29,7 +29,7 @@ public class TilesManager {
         getTileImage();
         loadMap("/maps/1st_floor_map.txt",0);
 
-        loadMap("/maps/room_1.txt",1);
+        loadMap("/maps/room_A2-4_note.txt",1);
 
         loadMap("/maps/2nd_floor_map.txt",2);
         loadMap("/maps/3rd_floor_map.txt",3);
@@ -130,6 +130,34 @@ public class TilesManager {
             setUpMap(72, "/tiles/class-decoration/board-border-right-down.png",true);
             setUpMap(73, "/tiles/class-decoration/board-border-up.png",true);
             setUpMap(74, "/tiles/class-decoration/board-border-down.png",true);
+
+            //room labels
+            setUpMap(75, "/tiles/room_labels/first_floor/A1-1.png",true);
+            setUpMap(76, "/tiles/room_labels/first_floor/A1-2.png",true);
+            setUpMap(77, "/tiles/room_labels/first_floor/A1-3.png",true);
+            setUpMap(78, "/tiles/room_labels/first_floor/A1-4.png",true);
+            setUpMap(79, "/tiles/room_labels/first_floor/B1-5.png",true);
+            setUpMap(80, "/tiles/room_labels/first_floor/B1-6.png",true);
+
+            setUpMap(81, "/tiles/room_labels/second_floor/A2-1.png",true);
+            setUpMap(82, "/tiles/room_labels/second_floor/A2-2.png",true);
+            setUpMap(83, "/tiles/room_labels/second_floor/A2-3.png",true);
+            setUpMap(84, "/tiles/room_labels/second_floor/A2-4.png",true);
+            setUpMap(85, "/tiles/room_labels/second_floor/B2-5.png",true);
+            setUpMap(86, "/tiles/room_labels/second_floor/B2-6.png",true);
+            setUpMap(87, "/tiles/room_labels/second_floor/B2-7.png",true);
+            setUpMap(88, "/tiles/room_labels/second_floor/B2-8.png",true);
+
+            setUpMap(89, "/tiles/room_labels/third_floor/A3-1.png",true);
+        setUpMap(90, "/tiles/room_labels/third_floor/A3-2.png",true);
+        setUpMap(91, "/tiles/room_labels/third_floor/A3-3.png",true);
+        setUpMap(92, "/tiles/room_labels/third_floor/A3-4.png",true);
+        setUpMap(93, "/tiles/room_labels/third_floor/B3-5.png",true);
+        setUpMap(94, "/tiles/room_labels/third_floor/B3-6.png",true);
+        setUpMap(95, "/tiles/room_labels/third_floor/B3-7.png",true);
+        setUpMap(96, "/tiles/room_labels/third_floor/B3-8.png",true);
+
+        setUpMap(97, "/tiles/others/room_floor.png",false);
     }
 
     public void setUpMap(int index, String imagePath, boolean collision) {

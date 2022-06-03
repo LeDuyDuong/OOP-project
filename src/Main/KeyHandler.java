@@ -192,7 +192,7 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_R) {
             switch (gp.currentMap) {
                 case 0: gp.tilesM.loadMap("/maps/1st_floor_map.txt",0); break;
-                case 1: gp.tilesM.loadMap("/maps/room_1.txt",1); break;
+                case 1: gp.tilesM.loadMap("/maps/room_A2-4_note.txt",1); break;
             }
         }
 

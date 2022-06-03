@@ -50,8 +50,8 @@ public class EventHandler {
 
         if (canTouchEvent == true) {
             //enter room
-            if (hit(0,9, 7, "any") == true) {teleport(1,13,19); gp.playSE(1);}
-            else if (hit(1,13,19,"any")==true) {teleport(0,9,7);gp.playSE(1);}
+            if (hit(2,23, 24, "up") == true) {teleport(1,13,19); gp.playSE(1);}
+            else if (hit(1,13,19,"any")==true) {teleport(2,23,25);gp.playSE(1);}
 
             /*else if (hit(0,25,7,"any")==true) {teleport(1,13,19); gp.playSE(1);}
             else if (hit(1,13,19,"any")==true) {teleport(0,25,7);gp.playSE(1);}
@@ -60,29 +60,29 @@ public class EventHandler {
             else if (hit(1,13,19,"any")==true) {teleport(0,11,24);gp.playSE(1);} */
 
             // thang máy góc trái dưới
-            else if (hit(0,8,31,"right")==true) {teleport(2,8,31);}     // 1 - 2
+            else if (hit(0,8,31,"right")==true) {teleport(2,8,31); gp.playSE(2);}     // 1 - 2
             //else if (hit(0,8,32,"right")==true) {teleport(2,8,32);}
-            else if (hit(2,8,31,"right")==true) {teleport(3,8,31);}     // 2 - 3
-            else if (hit(2,8,32,"right")==true) {teleport(0,8,32);}     // 2 - 1
-            else if (hit(3,8,32,"right")==true) {teleport(2,8,32);}     // 3 - 2
+            else if (hit(2,8,31,"right")==true) {teleport(3,8,31);gp.playSE(2);}     // 2 - 3
+            else if (hit(2,8,32,"right")==true) {teleport(0,8,32);gp.playSE(2);}     // 2 - 1
+            else if (hit(3,8,32,"right")==true) {teleport(2,8,32);gp.playSE(2);}     // 3 - 2
 
             // thang máy góc trái trên
-            else if (hit(2,8,3,"right")==true) {teleport(3,8,3);}       // 2 - 3
-            else if (hit(2,8,4,"right")==true) {teleport(0,8,4);}       // 2 - 1
-            else if (hit(0,8,3,"right")==true) {teleport(2,8,3);}       // 1 - 2
-            else if (hit(3,8,4,"right")==true) {teleport(2,8,4);}       // 3 - 2
+            else if (hit(2,8,3,"right")==true) {teleport(3,8,3);gp.playSE(2);}       // 2 - 3
+            else if (hit(2,8,4,"right")==true) {teleport(0,8,4);gp.playSE(2);}       // 2 - 1
+            else if (hit(0,8,3,"right")==true) {teleport(2,8,3);gp.playSE(2);}       // 1 - 2
+            else if (hit(3,8,4,"right")==true) {teleport(2,8,4);gp.playSE(2);}       // 3 - 2
             //else if (hit(0,8,4,"right")==true) {teleport(2,8,4);}
             // thang máy góc phải trên
-            else if (hit(2,26,3,"left")==true) {teleport(3,26,3);} // 2 - 3
-            else if (hit(2,26,4,"left")==true) {teleport(0,26,4);} // 2 - 1
-            else if (hit(0,26,3,"left")==true) {teleport(2,26,3);} // 1 - 2
-            else if (hit(3,26,4,"left")==true) {teleport(2,26,4);} // 3 - 2
+            else if (hit(2,26,3,"left")==true) {teleport(3,26,3);gp.playSE(2);} // 2 - 3
+            else if (hit(2,26,4,"left")==true) {teleport(0,26,4);gp.playSE(2);} // 2 - 1
+            else if (hit(0,26,3,"left")==true) {teleport(2,26,3);gp.playSE(2);} // 1 - 2
+            else if (hit(3,26,4,"left")==true) {teleport(2,26,4);gp.playSE(2);} // 3 - 2
             //else if (hit(0,26,4,"left")==true) {teleport(2,26,4);}
             // thang máy góc phải dưới
-            else if (hit(2,26,31,"left")==true) {teleport(3,26,31);} // 2-3
-            else if (hit(2,26,32,"left")==true) {teleport(0,26,32);} // 2-1
-            else if (hit(0,26,31,"left")==true) {teleport(2,26,31);} // 1-2
-            else if (hit(3,26,32,"left")==true) {teleport(2,26,32);} // 3-2
+            else if (hit(2,26,31,"left")==true) {teleport(3,26,31);gp.playSE(2);} // 2-3
+            else if (hit(2,26,32,"left")==true) {teleport(0,26,32);gp.playSE(2);} // 2-1
+            else if (hit(0,26,31,"left")==true) {teleport(2,26,31);gp.playSE(2);} // 1-2
+            else if (hit(3,26,32,"left")==true) {teleport(2,26,32);gp.playSE(2);} // 3-2
             //else if (hit(0,26,32,"left")==true) {teleport(2,26,32);}
             else if (hit(0,26,26,"any")==true){
                 gp.ui.drawSubWindow(120,40, 500, 500);
