@@ -182,6 +182,7 @@ public class UI {
             g2.drawImage(gp.player.inventory.get(i).down1,slotX,slotY,null);
             slotX+=gp.tileSize;
             if(i==4 || i==9 || i==14 ){
+                slotX=slotStartX;
                 slotY+= gp.tileSize;
             }
         }
@@ -208,7 +209,7 @@ public class UI {
         if(itemIndex<gp.player.inventory.size()){
             for(String line: gp.player.inventory.get(itemIndex).description.split("\n")){
                 g2.drawString(line,textX,textY);
-                textY+=30;
+                textY+=25;
             }
         }
     }

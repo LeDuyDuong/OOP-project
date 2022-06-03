@@ -3,10 +3,7 @@ package Entity;
 import Main.GamePanel;
 import Main.KeyHandler;
 import Main.UtilityTool;
-import object.OBJ_Chest;
-import object.OBJ_Coffee_cup;
-import object.OBJ_Coin;
-import object.OBJ_Key;
+import object.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -17,9 +14,9 @@ public class Player extends Entity{
     KeyHandler keyHandler;
     public final int screenX;
     public final int screenY;
-    int hasKey = 0;
-    public int hasCoin=2;
-    public ArrayList<Entity> inventory= new ArrayList<>();
+    //int hasKey = 0;
+    public int hasCoin=0;
+    public ArrayList<Entity> inventory= new ArrayList<>(20);
     public final int inventorySize=20;
     public Player(GamePanel gp, KeyHandler keyH) {
         super(gp);
@@ -65,12 +62,6 @@ public class Player extends Entity{
     }
 
     public void setItems(){
-        inventory.add(new OBJ_Coin(gp));
-        inventory.add(new OBJ_Coin(gp));
-        inventory.add(new OBJ_Coin(gp));
-        //inventory.add(new OBJ_Chest(gp));
-        //inventory.add(new OBJ_Key(gp));
-        //inventory.add(new OBJ_Key(gp));
 
     }
     public void update() {
@@ -141,19 +132,19 @@ public class Player extends Entity{
             String objectName = gp.obj[gp.currentMap][i].name;
 
             switch (objectName){
-                case "Key":
-                    gp.obj[gp.currentMap][i] = null;
-                    hasKey++;
-                    System.out.println("Key:" + hasKey);
-                    inventory.add(new OBJ_Key(gp));
-                    break;
-                case "Door":
-                    if(hasKey>0) {
-                        gp.obj[gp.currentMap][i] = null;
-                        hasKey--;
-                    }
-                    System.out.println("Key:" + hasKey);
-                    break;
+//                case "Key":
+//                    gp.obj[gp.currentMap][i] = null;
+//                    hasKey++;
+//                    System.out.println("Key:" + hasKey);
+//                    inventory.add(new OBJ_Key(gp));
+//                    break;
+//                case "Door":
+//                    if(hasKey>0) {
+//                        gp.obj[gp.currentMap][i] = null;
+//                        hasKey--;
+//                    }
+                    //System.out.println("Key:" + hasKey);
+                    //break;
                 case "Cup of Coffee":
                     gp.obj[gp.currentMap][i] = null;
                     inventory.add(new OBJ_Coffee_cup(gp));
@@ -162,8 +153,15 @@ public class Player extends Entity{
                     hasCoin++;
                     inventory.add(new OBJ_Coin(gp));
                     gp.obj[gp.currentMap][i] = null;
-
-
+                    break;
+                case "Paper":
+                    inventory.add(new OBJ_Paper(gp));
+                    gp.obj[gp.currentMap][i] = null;
+                    break;
+                case "Paper_Yellow":
+                    inventory.add(new OBJ_Paper_Yellow(gp));
+                    gp.obj[gp.currentMap][i] = null;
+                    break;
             }
         }
     }
