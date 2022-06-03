@@ -122,7 +122,7 @@ public class GamePanel extends JPanel implements Runnable{
             player.update();
         }
         //npc
-        for(int i=0;i<npc.length;i++){
+        for(int i=0;i<npc[1].length;i++){
             if(npc[currentMap][i]!=null){
                 npc[currentMap][i].update();
             }
@@ -143,13 +143,13 @@ public class GamePanel extends JPanel implements Runnable{
             //tile
             tilesM.draw(g2);
             entityList.add(player);
-            for(int i=0;i<npc[currentMap].length;i++){
+            for(int i=0;i<npc[1].length;i++){
                 if(npc[currentMap][i]!=null){
                     entityList.add(npc[currentMap][i]);
                 }
             }
 
-            for(int i=0;i<obj[currentMap].length;i++){
+            for(int i=0;i<obj[1].length;i++){
                 if(obj[currentMap][i]!=null){
                     entityList.add(obj[currentMap][i]);
                 }
