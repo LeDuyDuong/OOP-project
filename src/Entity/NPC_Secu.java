@@ -45,20 +45,20 @@ public class NPC_Secu extends Entity {
         dialogues[1]="You have my coffee yet ?";
         dialogues[2]="Keep up the good work";
     }
-    int count=0;
+
     public void speak(){
-        if(count==0){
-            gp.ui.currentDialogue=dialogues[count];
+        if(actionCounter ==0){
+            gp.ui.currentDialogue=dialogues[actionCounter];
             gp.gameState=gp.messageState;
             gp.ui.drawMessage(gp.ui.currentDialogue);
-            count++;
-            //System.out.println(count);
-        } else if (count==1) {
-            gp.ui.currentDialogue=dialogues[count];
+            actionCounter++;
+            //System.out.println(actionCounter);
+        } else if (actionCounter ==1) {
+            gp.ui.currentDialogue=dialogues[actionCounter];
             gp.gameState=gp.talkingToSecuState;
-            count++;
-        } else if (count==2) {
-            gp.ui.currentDialogue=dialogues[count];
+            //actionCounter++;
+        } else if (actionCounter ==2) {
+            gp.ui.currentDialogue=dialogues[actionCounter];
             gp.gameState=gp.dialogueState;
         }
     }
