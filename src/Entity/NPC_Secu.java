@@ -40,7 +40,7 @@ public class NPC_Secu extends Entity {
     public void setDialogue(){
         dialogues[0]="Want to get in this room ?" +
                 "\nFine! but you must have something in exchange.\n" +
-                "I'm felling a bit sleepy\n" +
+                "I'm feeling a bit sleepy\n" +
                 "Can you buy me a cup of coffee ?";
         dialogues[1]="You have my coffee yet ?";
         dialogues[2]="Keep up the good work";

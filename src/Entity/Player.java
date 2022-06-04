@@ -21,13 +21,16 @@ public class Player extends Entity{
     public final int inventorySize=20;
     public Player(GamePanel gp, KeyHandler keyH) {
         super(gp);
+        this.gp=gp;
         this.keyHandler=keyH;
         screenX=gp.screenWidth/2-(gp.tileSize/2);
         screenY=gp.screenHeight/2-(gp.tileSize/2);
-        direction = "down";
+        //direction = "down";
 
         solidArea = new Rectangle(8,16,32,32);
         //position of collision for object
+        solidArea.x=8;
+        solidArea.y=16;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
         setDefaultValues();

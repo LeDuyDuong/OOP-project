@@ -61,7 +61,7 @@ public class GamePanel extends JPanel implements Runnable{
     public AssetSetter aSetter = new AssetSetter(this);
     public Player player = new Player(this,keyHandler);
 
-    //initialize 40 objects in same time
+        //initialize 40 objects in same time
     public Entity obj[][] = new Entity[maxMap][50];
 
     //initialize 20 npc in same time

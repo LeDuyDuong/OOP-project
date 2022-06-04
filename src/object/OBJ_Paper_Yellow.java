@@ -9,6 +9,6 @@ public class OBJ_Paper_Yellow extends Entity {
         name = "Paper_Yellow";
         down1=setup("/objects/paper-yellow");
         //collision = true;
-        description= "1010 0010 0010 0000 0100";
+        description= "1010 0010 0100";
     }
 }
