@@ -143,7 +143,7 @@ public class KeyHandler implements KeyListener {
                 }
             }
             //buying State
-        } else if (gp.gameState==gp.tradingState) {
+        } else if (gp.gameState==gp.buyingState) {
             if(code == KeyEvent.VK_UP) {
                 gp.ui.commandNum--;
                 if(gp.ui.commandNum<0){
@@ -163,6 +163,7 @@ public class KeyHandler implements KeyListener {
                         gp.ui.setMessage("BOUGHT 1 CUP OF COFFEE, CHECK YOUR INVENTORY");
                         gp.player.inventory.add(new OBJ_Coffee_cup(gp));
                         gp.player.hasCoin--;
+                        gp.player.hasCoffe++;
                         for(Entity ent : gp.player.inventory){
                             if(ent instanceof OBJ_Coin){
                                 gp.player.inventory.remove(ent);
@@ -177,6 +178,48 @@ public class KeyHandler implements KeyListener {
                 if(gp.ui.commandNum==1){
                     gp.gameState=gp.playState;
                     //gp.sound.stop();
+                    gp.ui.commandNum=0;
+                }
+            }
+        }
+        //SECU TAlking
+        else if (gp.gameState==gp.talkingToSecuState) {
+            if(code == KeyEvent.VK_UP) {
+                gp.ui.commandNum--;
+                if(gp.ui.commandNum<0){
+                    gp.ui.commandNum=1;
+                }
+            }
+            if(code == KeyEvent.VK_DOWN) {
+                gp.ui.commandNum++;
+                if(gp.ui.commandNum>1){
+                    gp.ui.commandNum=0;
+                }
+            }
+            if(code==KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum==0){
+                    gp.gameState=gp.messageState;
+                    if(gp.player.hasCoffe>0){
+                        gp.player.hasCoffe--;
+                        gp.ui.setMessage("Ok, you are now free to enter");
+                        //gp.gameState= gp.transitionState;
+                        gp.npc[2][0].worldX = gp.tileSize * 22;
+                        gp.npc[2][0].worldY = gp.tileSize * 25;
+                        for(Entity ent : gp.player.inventory){
+                            if(ent instanceof OBJ_Coffee_cup){
+                                gp.player.inventory.remove(ent);
+                                break;
+                            }
+                        }
+
+                    }else if(gp.player.hasCoffe==0){
+                        gp.ui.setMessage("Hmmmmm\n" +
+                                "Fuck off!");
+                    }
+                }
+                if(gp.ui.commandNum==1){
+                    gp.ui.setMessage("I'm still waiting");
+                    gp.gameState= gp.messageState;
                     gp.ui.commandNum=0;
                 }
             }

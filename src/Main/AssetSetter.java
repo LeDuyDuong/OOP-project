@@ -269,8 +269,12 @@ public class AssetSetter {
         // NPC-3
         mapNum=2;
 
-        gp.npc[mapNum][5] = new NPC_student3(gp);
-        gp.npc[mapNum][5].worldX = gp.tileSize * 2;
-        gp.npc[mapNum][5].worldY = gp.tileSize * 20;
+//        gp.npc[mapNum][5] = new NPC_student3(gp);
+//        gp.npc[mapNum][5].worldX = gp.tileSize * 2;
+//        gp.npc[mapNum][5].worldY = gp.tileSize * 20;
+        gp.npc[mapNum][0] = new NPC_Secu(gp);
+        gp.npc[mapNum][0].worldX = gp.tileSize * 23;
+        gp.npc[mapNum][0].worldY = gp.tileSize * 25;
+
     }
 }

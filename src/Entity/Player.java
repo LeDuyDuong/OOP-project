@@ -16,6 +16,7 @@ public class Player extends Entity{
     public final int screenY;
     //int hasKey = 0;
     public int hasCoin=0;
+    public int hasCoffe=0;
     public ArrayList<Entity> inventory= new ArrayList<>(20);
     public final int inventorySize=20;
     public Player(GamePanel gp, KeyHandler keyH) {
