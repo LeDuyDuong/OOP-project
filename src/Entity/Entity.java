@@ -16,6 +16,7 @@ public class Entity {
 
     public int worldX, worldY;
     public int speed;
+    public int actionCounter =0;
 
     public BufferedImage up1, up2, down1, down2, right1, right2, left1,left2;
     public String direction= "down";

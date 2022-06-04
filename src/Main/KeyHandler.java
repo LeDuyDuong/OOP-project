@@ -202,6 +202,7 @@ public class KeyHandler implements KeyListener {
                     if(gp.player.hasCoffe>0){
                         gp.player.hasCoffe--;
                         gp.ui.setMessage("Ok, you are now free to enter");
+                        gp.npc[2][0].actionCounter++;
                         //gp.gameState= gp.transitionState;
                         gp.npc[2][0].worldX = gp.tileSize * 22;
                         gp.npc[2][0].worldY = gp.tileSize * 25;
