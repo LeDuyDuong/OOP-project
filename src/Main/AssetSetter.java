@@ -241,6 +241,17 @@ public class AssetSetter {
         gp.obj[2][1] = new OBJ_Elevator_Ground(gp);
         gp.obj[2][1].worldX = 8 * gp.tileSize;
         gp.obj[2][1].worldY = 32 * gp.tileSize;*/
+
+
+        /* Room 307*/
+        gp.obj[5][0] = new OBJ_Paper(gp);
+        gp.obj[5][0].worldX = 13 * gp.tileSize;
+        gp.obj[5][0].worldY = 5 * gp.tileSize;
+
+        gp.obj[5][1] = new OBJ_Elevator_Down(gp);
+        gp.obj[5][1].worldX = 6 * gp.tileSize;
+        gp.obj[5][1].worldY = 5 * gp.tileSize;
+
     }
     public void setNPC() {
         int mapNum = 0;

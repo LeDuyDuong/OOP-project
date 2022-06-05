@@ -34,6 +34,7 @@ public class TilesManager {
         loadMap("/maps/2nd_floor_map.txt",2);
         loadMap("/maps/3rd_floor_map.txt",3);
         loadMap("/maps/elevator_left_1.txt",4);
+        loadMap("/maps/room_B3-7_note.txt",5);
     }
     public void getTileImage(){
             setUpMap(0,"/tiles/others/path.png", false);
@@ -158,6 +159,8 @@ public class TilesManager {
         setUpMap(96, "/tiles/room_labels/third_floor/B3-8.png",true);
 
         setUpMap(97, "/tiles/others/room_floor.png",false);
+        //setUpMap(98, "/tiles/others/room_floor_collision.png",true);
+        setUpMap(98, "/tiles/others/room_floor_collision1.png",true);
     }
 
     public void setUpMap(int index, String imagePath, boolean collision) {
