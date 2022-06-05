@@ -49,7 +49,7 @@ public class EventHandler {
         }
 
         if (canTouchEvent == true) {
-            //enter room
+            //enter room 2.4
             if (hit(2,23, (25), "up") == true) {teleport(1,13,12); gp.playSE(1);}
             else if (hit(1,13,19,"any")==true) {teleport(2,23,25);gp.playSE(1);}
 
@@ -57,6 +57,14 @@ public class EventHandler {
             if (hit(3,15, 8, "up") == true) {teleport(5,13,22); gp.playSE(1);}
             else if (hit(5,13,22,"any")==true) {teleport(3,15,8);gp.playSE(1);}
             else if (hit(5,6,5,"any")==true) {teleport(3,15,8);gp.playSE(1);}
+
+            //enter room A3.3-4
+            if (hit(3,21, (25), "up") == true) {teleport(6,13,19); gp.playSE(1);}
+            else if (hit(6,13,19,"any")==true) {teleport(3,21,25);gp.playSE(1);}
+
+            //enter room B2.6
+            if (hit(2,19, 8, "up") == true) {teleport(7,13,19); gp.playSE(1);}
+            else if (hit(7,13,19,"any")==true) {teleport(2,19,8);gp.playSE(1);}
 
 //            if (hit(0,11, 24, "up") == true) {teleport(5,13,22); gp.playSE(1);}
 //            else if (hit(5,13,22,"any")==true) {teleport(0,11,24);gp.playSE(1);}

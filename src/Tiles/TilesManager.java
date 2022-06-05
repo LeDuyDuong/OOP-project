@@ -35,6 +35,8 @@ public class TilesManager {
         loadMap("/maps/3rd_floor_map.txt",3);
         loadMap("/maps/elevator_left_1.txt",4);
         loadMap("/maps/room_B3-7_note.txt",5);
+        loadMap("/maps/room_A3-3-4_note.txt",6);
+        loadMap("/maps/room_B2-6_note.txt",7);
     }
     public void getTileImage(){
             setUpMap(0,"/tiles/others/path.png", false);
