@@ -25,14 +25,14 @@ public class NPC_Secu extends Entity {
 
     public void setImage() {
         try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("/Student-clone/Student-clone2/Student_clone2.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/Student-clone/Student-clone2/Student_clone2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/Student-clone/Student-clone2/Student_clone2.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/Student-clone/Student-clone2/Student_clone2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/Student-clone/Student-clone2/Student_clone2.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/Student-clone/Student-clone2/Student_clone2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/Student-clone/Student-clone2/Student_clone2.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/Student-clone/Student-clone2/Student_clone2.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
         } catch(IOException e) {
             e.printStackTrace();
         }
