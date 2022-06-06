@@ -99,13 +99,14 @@ public class TilesManager {
             setUpMap(45, "/tiles/gate/gate_stair_3.png",false);
             setUpMap(46, "/tiles/gate/gate_stair_4.png",false);
             //ELEVATOR
-            setUpMap(47, "/tiles/elevator/elevator_floor.png",false);
-            setUpMap(48, "/tiles/elevator/elevator_wall.png",true);
-            setUpMap(49, "/tiles/elevator/elevator_roof_0.png",true);
-            setUpMap(50, "/tiles/elevator/elevator_roof_1.png",true);
-            setUpMap(51, "/tiles/elevator/elevator_roof_2.png",true);
-            setUpMap(52, "/tiles/elevator/elevator_roof_3.png",true);
-            setUpMap(53, "/tiles/elevator/elevator_roof_4.png",true);
+            setUpMap(47, "/tiles/class-decoration/board-border-up-E.png",true);
+            setUpMap(48, "/tiles/class-decoration/board-border-up-N.png",true);
+            setUpMap(49, "/tiles/class-decoration/board-border-up-S.png",true);
+            setUpMap(50, "/tiles/class-decoration/board-border-down-E.png",true);
+            setUpMap(51, "/tiles/class-decoration/board-border-down-N.png",true);
+            setUpMap(52, "/tiles/class-decoration/board-border-down-S.png",true);
+            setUpMap(53, "/tiles/class-decoration/compass.png",true);
+
             setUpMap(54, "/tiles/elevator/elevator_roof_5.png",true);
             setUpMap(55, "/tiles/elevator/elevator_wall_1.png",true);
 
@@ -152,17 +153,17 @@ public class TilesManager {
             setUpMap(88, "/tiles/room_labels/second_floor/B2-8.png",true);
 
             setUpMap(89, "/tiles/room_labels/third_floor/A3-1.png",true);
-        setUpMap(90, "/tiles/room_labels/third_floor/A3-2.png",true);
-        setUpMap(91, "/tiles/room_labels/third_floor/A3-3.png",true);
-        setUpMap(92, "/tiles/room_labels/third_floor/A3-4.png",true);
-        setUpMap(93, "/tiles/room_labels/third_floor/B3-5.png",true);
-        setUpMap(94, "/tiles/room_labels/third_floor/B3-6.png",true);
-        setUpMap(95, "/tiles/room_labels/third_floor/B3-7.png",true);
-        setUpMap(96, "/tiles/room_labels/third_floor/B3-8.png",true);
+            setUpMap(90, "/tiles/room_labels/third_floor/A3-2.png",true);
+            setUpMap(91, "/tiles/room_labels/third_floor/A3-3.png",true);
+            setUpMap(92, "/tiles/room_labels/third_floor/A3-4.png",true);
+            setUpMap(93, "/tiles/room_labels/third_floor/B3-5.png",true);
+            setUpMap(94, "/tiles/room_labels/third_floor/B3-6.png",true);
+            setUpMap(95, "/tiles/room_labels/third_floor/B3-7.png",true);
+            setUpMap(96, "/tiles/room_labels/third_floor/B3-8.png",true);
 
-        setUpMap(97, "/tiles/others/room_floor.png",false);
+            setUpMap(97, "/tiles/others/room_floor.png",false);
         //setUpMap(98, "/tiles/others/room_floor_collision.png",true);
-        setUpMap(98, "/tiles/others/room_floor_collision1.png",true);
+            setUpMap(98, "/tiles/others/room_floor_collision1.png",true);
     }
 
     public void setUpMap(int index, String imagePath, boolean collision) {
