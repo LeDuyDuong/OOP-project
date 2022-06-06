@@ -50,7 +50,7 @@ public class EventHandler {
 
         if (canTouchEvent == true) {
             //enter room 2.4
-            if (hit(2,23, (25), "up") == true) {teleport(1,13,12); gp.playSE(1);}
+            if (hit(2,23, (25), "up") == true) {teleport(1,13,19); gp.playSE(1);}
             else if (hit(1,13,19,"any")==true) {teleport(2,23,25);gp.playSE(1);}
 
             //enter room B3.7
