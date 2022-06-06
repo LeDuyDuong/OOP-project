@@ -1,11 +1,17 @@
 package Main;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.IOException;
+
 import Entity.Entity;
 import object.OBJ_Coffee_cup;
 import object.OBJ_Coin;
 
+import javax.imageio.ImageIO;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 public class KeyHandler implements KeyListener {
 
@@ -204,10 +210,13 @@ public class KeyHandler implements KeyListener {
                         gp.ui.setMessage("Ok, you are now free to enter");
                         gp.npc[2][0].actionCounter++;
                         //gp.gameState= gp.transitionState;
+                        gp.npc[2][0].direction="down";
                         gp.npc[2][0].worldX = gp.tileSize * 22;
                         gp.npc[2][0].worldY = gp.tileSize * 25;
                         for(Entity ent : gp.player.inventory){
                             if(ent instanceof OBJ_Coffee_cup){
+
+
                                 gp.player.inventory.remove(ent);
                                 break;
                             }
@@ -215,7 +224,7 @@ public class KeyHandler implements KeyListener {
 
                     }else if(gp.player.hasCoffe==0){
                         gp.ui.setMessage("Hmmmmm\n" +
-                                "Fuck off!");
+                                "Do my request first!");
                     }
                 }
                 if(gp.ui.commandNum==1){

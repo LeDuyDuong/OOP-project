@@ -20,10 +20,12 @@ public class NPC_Amber extends Entity {
 
         }
         public void setDialogue(){
-            dialogues[0]="Duong da ia tren giuong tui";
-
-
+            dialogues[0]="AMBER : ia tren giuong la 1 tro dua thu vi";
+            dialogues[1]="YOU : Toi cung nghi vay";
         }
+    public void speak(){
+        super.speak();
+    }
         public void setImage() {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/Student-clone/Amber Heard/down1.png"));
@@ -39,9 +41,6 @@ public class NPC_Amber extends Entity {
             } catch(IOException e) {
                 e.printStackTrace();
             }
-        }
-        public void speak(){
-            super.speak();
-        }
-    }
+        }}
+
 
