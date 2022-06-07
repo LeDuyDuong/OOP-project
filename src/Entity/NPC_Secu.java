@@ -12,6 +12,7 @@ public class NPC_Secu extends Entity {
         name = "Vending_Machine";
         setImage();
         setDialogue();
+        direction ="up";
         // down1=setup("/objects/vending_machine_1");
         solidArea = new Rectangle();
         solidArea.x= 0;
@@ -33,6 +34,7 @@ public class NPC_Secu extends Entity {
             left2 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
             right1 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
             right2 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
+
         } catch(IOException e) {
             e.printStackTrace();
         }
