@@ -9,9 +9,8 @@ public class OBJ_Paper extends Entity {
         name = "Paper";
         down1=setup("/objects/paper");
         //collision = false;
-        description= "roses are heads\n" +
-                "violet are shoes\n" +
-                "his skin is black\n" +
-                "and his shirt is blue";
+    }
+    public void setDescription(String a){
+        this.description=a;
     }
 }

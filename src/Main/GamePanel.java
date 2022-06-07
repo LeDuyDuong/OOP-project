@@ -24,6 +24,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int buyingState =6;
     public final int messageState=7;
     public final int talkingToSecuState=8;
+    public final int tradingState=9;
 
     final int originalTileSize = 16;
     final int scale = 3;

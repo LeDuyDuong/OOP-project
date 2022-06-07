@@ -9,7 +9,7 @@ import java.io.IOException;
 public class NPC_Secu extends Entity {
     public NPC_Secu(GamePanel gp){
         super(gp);
-        name = "Vending_Machine";
+        name = "Security";
         setImage();
         setDialogue();
         direction ="up";

@@ -18,7 +18,7 @@ public class OBJ_Door extends Entity {
         solidArea.width=32;
         solidArea.height=32;
         name = "Door";
-        down1=setup("/objects/door");
+        down1=setup("/tiles/door");
         collision = true;
     }
 }

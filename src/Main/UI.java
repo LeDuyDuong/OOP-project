@@ -63,6 +63,9 @@ public class UI {
         if(gp.gameState==gp.talkingToSecuState){
             drawTalkingtoSecuScreen();
         }
+        if(gp.gameState==gp.tradingState){
+            drawTradingScreen();
+        }
 
     }
     public void drawTittleScreen(){
@@ -291,6 +294,26 @@ public class UI {
     }
 
     public void drawTalkingtoSecuScreen(){
+        gp.keyHandler.enterPressed=false;
+        drawDialogueScreen();
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 25F));
+        String Text= "YES";
+        int x= getXForCenteredText(Text);
+        int y= gp.tileSize*3;
+        x=getXForCenteredText(Text);
+        g2.drawString(Text, x, y);
+        if(commandNum==0){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+        Text= "NO";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        if(commandNum==1){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+    }
+    public void drawTradingScreen(){
         gp.keyHandler.enterPressed=false;
         drawDialogueScreen();
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 25F));

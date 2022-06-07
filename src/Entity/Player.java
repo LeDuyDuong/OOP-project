@@ -14,8 +14,9 @@ public class Player extends Entity{
     KeyHandler keyHandler;
     public final int screenX;
     public final int screenY;
-    //int hasKey = 0;
+    int hasKey = 0;
     public int hasCoin=0;
+    public int hasLoli=0;
     public int hasCoffe=0;
     public ArrayList<Entity> inventory= new ArrayList<>(20);
     public final int inventorySize=20;
@@ -136,12 +137,12 @@ public class Player extends Entity{
             String objectName = gp.obj[gp.currentMap][i].name;
 
             switch (objectName){
-//                case "Key":
-//                    gp.obj[gp.currentMap][i] = null;
-//                    hasKey++;
-//                    System.out.println("Key:" + hasKey);
-//                    inventory.add(new OBJ_Key(gp));
-//                    break;
+                case "Key":
+                    gp.obj[gp.currentMap][i] = null;
+                    hasKey++;
+                    System.out.println("Key:" + hasKey);
+                    inventory.add(new OBJ_Key(gp));
+                    break;
 //                case "Door":
 //                    if(hasKey>0) {
 //                        gp.obj[gp.currentMap][i] = null;
@@ -155,6 +156,7 @@ public class Player extends Entity{
 //                    break;
                 case "Coin":
                     gp.obj[gp.currentMap][i] = null;
+                    gp.obj[gp.currentMap][i] = null;
                     hasCoin++;
                     gp.ui.setMessage("YOU FOUND A COIN");
                     gp.gameState= gp.messageState;
@@ -163,15 +165,23 @@ public class Player extends Entity{
                     break;
                 case "Paper":
                     inventory.add(new OBJ_Paper(gp));
+                    gp.obj[gp.currentMap][i] = null;
                     gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
                     gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Paper_Yellow":
                     inventory.add(new OBJ_Paper_Yellow(gp));
+                    gp.obj[gp.currentMap][i] = null;
                     gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
                     gp.gameState= gp.messageState;
+                    break;
+                case "Lolipop":
+                    inventory.add(new OBJ_Lolipop(gp));
                     gp.obj[gp.currentMap][i] = null;
+                    hasLoli++;
+                    gp.ui.setMessage("YOU A LOLIpop");
+                    gp.gameState= gp.messageState;
                     break;
             }
         }
