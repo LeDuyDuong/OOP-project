@@ -261,6 +261,11 @@ public class AssetSetter {
         gp.obj[5][1].worldX = 6 * gp.tileSize;
         gp.obj[5][1].worldY = 5 * gp.tileSize;
 
+        /* Room 206*/
+        gp.obj[7][0]= new OBJ_Paper_B26(gp);
+        gp.obj[7][0].worldX = 12 * gp.tileSize;
+        gp.obj[7][0].worldY = 16 * gp.tileSize;
+
     }
     public void setNPC() {
         int mapNum = 0;
