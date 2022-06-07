@@ -99,6 +99,29 @@ public class EventHandler {
             else if (hit(0,26,31,"left")==true) {teleport(2,26,31);gp.playSE(2);} // 1-2
             else if (hit(3,26,32,"left")==true) {teleport(2,26,32);gp.playSE(2);} // 3-2
             //else if (hit(0,26,32,"left")==true) {teleport(2,26,32);}
+
+            //phòng đầu 2 gates:
+            else if (hit(7,14,14,"any")==true) {teleport(8,13,19);} // chọn B đúng
+            else if (hit(7,12,14,"any")==true) {teleport(10,13,19);} // chọn A sai
+
+            //phòng hai 3 gates
+            else if (hit(8,13,19,"any")==true) {teleport(7,13,19);} // quay lại phòng 2 gates
+            else if (hit(8,14,14,"any")==true) {teleport(9,13,19);} // chọn C đúng
+            else if (hit(8,12,14,"any")==true) {teleport(10,13,19);} // chọn B sai
+            else if (hit(8,10,14,"any")==true) {teleport(10,13,19);} // chọn A sai
+
+            //phòng ba 5 gates:
+            else if (hit(9,13,19,"any")==true) {teleport(8,13,19);} // quay lại phòng 3 gates
+            else if (hit(9,12,15,"any")==true) {teleport(11,13,19);} // chọn C đúng
+            else if (hit(9,13,15,"any")==true) {teleport(10,13,19);} // chọn D sai
+            else if (hit(9,10,15,"any")==true) {teleport(10,13,19);} // chọn B sai
+            else if (hit(9,9,15,"any")==true) {teleport(10,13,19);} // chọn A sai
+            else if (hit(9,17,15,"any")==true) {teleport(10,13,19);} // chọn E sai
+            //lose b2.6
+            else if (hit(10,13,17,"any")==true) {teleport(7,13,19);}
+            //Win b2.6
+            else if (hit(11,13,17,"any")==true) {teleport(2,19,8);}
+
             else if (hit(0,26,26,"any")==true){
                 gp.ui.drawSubWindow(120,40, 500, 500);
             }

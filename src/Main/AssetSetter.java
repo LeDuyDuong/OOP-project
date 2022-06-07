@@ -12,6 +12,7 @@ public class AssetSetter {
 
     //set position of object
     public void setObject(){
+        // Room B2.6
         /* Map 1 */
 
         //key 1
