@@ -302,8 +302,8 @@ public class AssetSetter {
         gp.npc[0][7].worldX = gp.tileSize * 23;
         gp.npc[0][7].worldY = gp.tileSize * 25;
 
-        gp.obj[0][6]= new OBJ_Lolipop(gp);
-        gp.obj[0][6].worldX= gp.tileSize*24;
-        gp.obj[0][6].worldY = gp.tileSize * 25;
+        gp.obj[11][0]= new OBJ_Lolipop(gp);
+        gp.obj[11][0].worldX= gp.tileSize*13;
+        gp.obj[11][0].worldY = gp.tileSize * 18;
     }
 }
