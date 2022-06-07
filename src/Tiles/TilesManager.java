@@ -224,6 +224,7 @@ public class TilesManager {
         setUpMap(144, "/tiles/gates/144.png",false);
         setUpMap(145, "/tiles/gates/145.png",false);
         setUpMap(146, "/tiles/gates/E.png",false);
+        setUpMap(147, "/tiles/gates/output1.png",false);
     }
 
     public void setUpMap(int index, String imagePath, boolean collision) {
