@@ -7,8 +7,8 @@ public class OBJ_Paper_B26 extends Entity {
 
     public OBJ_Paper_B26(GamePanel gp){
         super(gp);
-        name = "Paper_Yellow";
-        down1=setup("/objects/paper-yellow");
+        name = "Paper_B26";
+        down1=setup("/objects/paper-B26");
         //collision = true;
         description= "You are the only ONE";
     }

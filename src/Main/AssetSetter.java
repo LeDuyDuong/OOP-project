@@ -249,11 +249,7 @@ public class AssetSetter {
 
 
         /* Room 307*/
-        gp.obj[5][0] = new OBJ_Paper(gp);
-        gp.obj[5][0].setDescription("roses are heads\n" +
-                "violet are shoes\n" +
-                "his skin is black\n" +
-                "and his shirt is blue");
+        gp.obj[5][0]= new OBJ_Owl(gp);
         gp.obj[5][0].worldX = 13 * gp.tileSize;
         gp.obj[5][0].worldY = 5 * gp.tileSize;
 
@@ -266,6 +262,7 @@ public class AssetSetter {
         gp.obj[7][0].worldX = 12 * gp.tileSize;
         gp.obj[7][0].worldY = 16 * gp.tileSize;
 
+        /* Room A303.5*/
     }
     public void setNPC() {
         int mapNum = 0;
