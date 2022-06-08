@@ -374,8 +374,8 @@ public class KeyHandler implements KeyListener {
                                 break;
                             }
                         }
-                    //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
-                    //gp.gameState=gp.dialogueState;
+                    gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
+                    gp.gameState=gp.dialogueState;
                     }else if(gp.player.hasCoffe==0){
                         gp.ui.setMessage("");
                     }
