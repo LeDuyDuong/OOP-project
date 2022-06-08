@@ -210,8 +210,8 @@ public class Entity {
         return img;
     }
 
-    public void setDescription(String a){
-        description=a;
+    public void setDescription(String des){
+        description=des;
     }
 
 }

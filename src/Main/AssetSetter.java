@@ -228,13 +228,13 @@ public class AssetSetter {
 //        gp.obj[1][38].worldY = 8 * gp.tileSize;
 
         //paper
-        gp.obj[1][39] = new OBJ_Paper(gp);
-        gp.obj[1][39].setDescription("roses are heads\n" +
+        gp.obj[1][0] = new OBJ_Paper(gp);
+        gp.obj[1][0].setDescription("roses are heads\n" +
                 "violet are shoes\n" +
                 "his skin is black\n" +
                 "and his shirt is blue");
-        gp.obj[1][39].worldX = 13 * gp.tileSize;
-        gp.obj[1][39].worldY = 8 * gp.tileSize;
+        gp.obj[1][0].worldX = 13 * gp.tileSize;
+        gp.obj[1][0].worldY = 8 * gp.tileSize;
 
         /* Map 2 */
 

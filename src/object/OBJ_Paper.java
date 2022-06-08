@@ -10,7 +10,4 @@ public class OBJ_Paper extends Entity {
         down1=setup("/objects/paper");
         //collision = false;
     }
-    public void setDescription(String a){
-        this.description=a;
-    }
 }
