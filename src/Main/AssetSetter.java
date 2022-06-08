@@ -310,8 +310,8 @@ public class AssetSetter {
         gp.npc[mapNum][0].worldY = gp.tileSize * 25;
 
         gp.npc[3][0] = new NPC_Trader(gp);
-        gp.npc[3][0].worldX = gp.tileSize * 3;
-        gp.npc[3][0].worldY = gp.tileSize * 9;
+        gp.npc[3][0].worldX = gp.tileSize * 10;
+        gp.npc[3][0].worldY = gp.tileSize * 25;
 
 
     }
