@@ -17,6 +17,7 @@ public class Player extends Entity{
     public int hasKey = 0;
     public int hasCoin=0;
     public int hasLoli=0;
+    public int hasBag=0;
     public int hasCoffe=0;
     public int hasOwl = 0;
     public ArrayList<Entity> inventory= new ArrayList<>(20);
@@ -203,6 +204,7 @@ public class Player extends Entity{
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Backpack":
+                    hasBag++;
                     inventory.add(new OBJ_Backpack(gp));
                     gp.obj[gp.currentMap][i] = null;
                     gp.ui.setMessage("YOU FOUND AMBER'S BACKPACK!");

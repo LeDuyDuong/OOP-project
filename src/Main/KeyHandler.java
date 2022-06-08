@@ -303,14 +303,12 @@ public class KeyHandler implements KeyListener {
             if(code==KeyEvent.VK_ENTER){
                 if(gp.ui.commandNum==0){
                     gp.gameState=gp.messageState;
-                    if(gp.player.hasLoli>0){
-                        gp.player.hasLoli--;
+                    if(gp.player.hasBag>0){
+                        gp.player.hasBag--;
                         gp.gameState=gp.messageState;
                         //gp.ui.setMessage("Good job! Here're the stuffs i promised");
                         gp.ui.setMessage("Good job! Here're the stuffs i promised:\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY");
                         gp.npc[0][3].actionCounter++;
-                        gp.player.inventory.add(new OBJ_Key(gp));
-                        gp.player.hasKey++;
                         gp.player.inventory.add(new OBJ_Paper(gp));
                         for(Entity ent : gp.player.inventory){
                             if(ent instanceof OBJ_Paper && ent.description==""){
@@ -320,7 +318,7 @@ public class KeyHandler implements KeyListener {
                         }
                         for(Entity ent : gp.player.inventory){
                             if(ent instanceof OBJ_Lolipop){
-                                gp.player.hasLoli++;
+                                gp.player.hasBag++;
                                 gp.player.inventory.remove(ent);
                                 break;
                             }
@@ -371,7 +369,7 @@ public class KeyHandler implements KeyListener {
                             }
                         }
                         for(Entity ent : gp.player.inventory){
-                            if(ent instanceof OBJ_Lolipop){
+                            if(ent instanceof OBJ_Backpack){
                                 gp.player.hasLoli++;
                                 gp.player.inventory.remove(ent);
                                 break;
