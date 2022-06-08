@@ -61,6 +61,7 @@ public class UI {
         }
         if(gp.gameState==gp.messageState){
             drawMessage(message);
+
         }
         if(gp.gameState==gp.talkingToSecuState){
             drawTalkingtoSecuScreen();
@@ -285,6 +286,7 @@ public class UI {
 
     }
     public void drawMessage(String message){
+        gp.keyHandler.enterPressed=false;
         setMessage(message);
         int x=gp.tileSize*2;
         int y=gp.tileSize/2;
@@ -305,7 +307,6 @@ public class UI {
         g2.drawString(">", x-gp.tileSize+20,y);
         g2.drawString("<", x+gp.tileSize,y);
         g2.drawString(Text, x, y);
-
     }
 
     public void setMessage(String x){

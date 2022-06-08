@@ -390,8 +390,10 @@ public class KeyHandler implements KeyListener {
         }
         //Message State
         else if (gp.gameState==gp.messageState) {
-            if(code==KeyEvent.VK_ENTER){
-                gp.gameState= gp.playState;
+            if(code==KeyEvent.VK_ENTER) {
+                gp.gameState = gp.playState;
+            } else if (code==KeyEvent.VK_SPACE) {
+                gp.gameState=gp.messageState;
             }
         }
 

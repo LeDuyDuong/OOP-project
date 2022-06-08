@@ -59,6 +59,7 @@ public class EventHandler {
                     teleport(5,13,22); gp.playSE(1);
                 } else if (gp.player.hasKey==0) {
                     gp.ui.setMessage("Door is locked, Find a key to open it");
+
                     gp.gameState= gp.messageState;
                 }
             }

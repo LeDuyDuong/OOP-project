@@ -54,6 +54,7 @@ public class NPC_Amber extends Entity {
             } catch(IOException e) {
                 e.printStackTrace();
             }
-        }}
+        }
+}
 
 
