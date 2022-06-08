@@ -202,6 +202,13 @@ public class Player extends Entity{
                     gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;
                     break;
+                case "Backpack":
+                    inventory.add(new OBJ_Backpack(gp));
+                    gp.obj[gp.currentMap][i] = null;
+                    gp.ui.setMessage("YOU FOUND AMBER'S BACKPACK!");
+                    gp.gameState= gp.messageState;
+                    gp.obj[gp.currentMap][i] = null;
+                    break;
             }
         }
     }
