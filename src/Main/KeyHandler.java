@@ -111,6 +111,17 @@ public class KeyHandler implements KeyListener {
                 }
             }
         }
+        //endgame
+        else if(gp.gameState== gp.StateEndgame){
+            if(code==KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum==0){
+                    gp.gameState=gp.tittleState;
+                    gp.sound.stop();
+                    gp.ui.commandNum=0;
+                }
+            }
+        }
+
         //play state
         else if(gp.gameState==gp.playState){
             if(code == KeyEvent.VK_UP) {
@@ -307,30 +318,19 @@ public class KeyHandler implements KeyListener {
                         gp.player.hasBag--;
                         gp.gameState=gp.messageState;
                         //gp.ui.setMessage("Good job! Here're the stuffs i promised");
-                        gp.ui.setMessage("Good job! Here're the stuffs i promised:\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY");
-                        gp.npc[0][3].actionCounter++;
-                        gp.player.inventory.add(new OBJ_Paper(gp));
-                        for(Entity ent : gp.player.inventory){
-                            if(ent instanceof OBJ_Paper && ent.description==""){
-                                ent.description="-...  ...--  --...";
-                                break;
-                            }
-                        }
-                        for(Entity ent : gp.player.inventory){
-                            if(ent instanceof OBJ_Lolipop){
-                                gp.player.hasBag++;
-                                gp.player.inventory.remove(ent);
-                                break;
-                            }
-                        }
+                        gp.ui.setMessage("Thank you, thank you very much.\n" +
+                                "all assets i have here, thank you.");
+                        gp.ui.gameFinished = true;
+                        gp.stopMusic();
+                        gp.playSE(3);
                         //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
                         //gp.gameState=gp.dialogueState;
                     }else if(gp.player.hasCoffe==0){
-                        gp.ui.setMessage("Stop joking man. or else I'll make you my LOLI\n (͡° ͜ʖ ͡°)");
+                        gp.ui.setMessage("Have you found my bag yet?");
                     }
                 }
                 if(gp.ui.commandNum==1){
-                    gp.ui.setMessage("Hurry up bro");
+                    gp.ui.setMessage("Please find for me, it is important for me.");
                     gp.gameState= gp.messageState;
                     gp.ui.commandNum=0;
                 }

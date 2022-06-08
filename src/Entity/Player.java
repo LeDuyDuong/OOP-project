@@ -219,7 +219,7 @@ public class Player extends Entity{
                     break;
                 case "Informer":
                     gp.obj[gp.currentMap][i] = null;
-                    gp.ui.setMessage("There is a girl crying over there. /Maybe I can help her, cause I'm sometimes a detective myself");
+                    gp.ui.setMessage("There is a girl crying over there.Maybe I can help her,\n cause I'm sometimes a detective myself");
                     gp.gameState= gp.messageState;
                     break;
             }

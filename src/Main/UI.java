@@ -7,7 +7,7 @@ import java.awt.*;
 public class UI {
     Graphics2D g2;
     GamePanel gp;
-    Font arial_40;
+    Font arial_40, arial_80B;
     public boolean messageOn = false;
     public String message =  "";
     public String currentDialogue="";
@@ -16,11 +16,14 @@ public class UI {
     public int slotRow=0;
     public int namePosition = 60;
     public int scriptPosition = 100;
+
+    public boolean gameFinished = false;
     int counter=0;
     public Entity npc;
     public UI (GamePanel gp) {
         this.gp = gp;
         arial_40 =  new Font("Arial", Font.PLAIN, 40);
+        arial_80B =  new Font("Arial", Font.BOLD, 80);
     }
     public void showMessage(String text) {
         message = text;
@@ -28,65 +31,98 @@ public class UI {
     }
 
     public void draw(Graphics2D g2) {
-        this.g2=g2;
-        g2.setFont(arial_40);
-        g2.setColor(Color.WHITE);
-        //tittle State
-        if(gp.gameState==gp.tittleState){
-            drawTittleScreen();
-        }
-        //play state
-        if (gp.gameState==gp.playState) {
+        if(gameFinished == true){
+            g2.setFont(arial_40);
+            g2.setColor(Color.white);
 
-        }
-        //Pause state
-        if (gp.gameState == gp.pauseState) {
-            drawPauseScreen();
-        }
-        // dialogue state
-        if(gp.gameState==gp.dialogueState) {
-            drawDialogueScreen();
-        }
-        //player State
-        if(gp.gameState== gp.characterState){
-            drawInventory();
-        }
-        //transitionState
-        if(gp.gameState==gp.transitionState){
-            drawTransition();
-        }
-        //buyingState
-        if(gp.gameState== gp.buyingState){
-            drawBuyingScreen();
-        }
-        if(gp.gameState==gp.messageState){
-            drawMessage(message);
+            String text;
+            int textLenght;
+            int x;
+            int y;
 
-        }
-        if(gp.gameState==gp.talkingToSecuState){
-            drawTalkingtoSecuScreen();
-        }
-        if(gp.gameState==gp.talkingToAmber){
-            drawTradingScreen();
-        }
-        if(gp.gameState==gp.tradingState){
-            drawTradingScreen();
-        }
-        //about state
-        if(gp.gameState==gp.aboutState){
-            drawAboutScreen();
-        }
-        if(gp.gameState==gp.aboutStateGame){
-            drawAboutGameScreen();
-        }
-        if(gp.gameState==gp.aboutStateHowToPlay){
-            drawAboutHowToPlayScreen();
-        }
-        if(gp.gameState==gp.aboutStateCreator){
-            drawAboutCreatorScreen();
-        }
+            text = "You return amber lost bag successfully";
+            textLenght = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();
+            x = gp.screenWidth/2 - textLenght/2;
+            y = gp.screenHeight/2 - (gp.tileSize*3);
+            g2.drawString(text,x,y);
 
+            g2.setFont(arial_80B);
+            g2.setColor(Color.yellow);
 
+            text = "CONGRATULATION";
+            textLenght = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();
+            x = gp.screenWidth/2 - textLenght/2;
+            y = gp.screenHeight/2 + (gp.tileSize*2);
+            g2.drawString(text,x,y);
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+            gp.gameThread = null;
+//            text= "BACK";
+//            x=getXForCenteredText(text);
+//            y+=gp.tileSize*2;
+//            g2.drawString(text, x, y);
+//            if(commandNum==0){
+//                g2.drawString(">", x-gp.tileSize,y);
+//            }
+
+        } else {
+            this.g2=g2;
+            g2.setFont(arial_40);
+            g2.setColor(Color.WHITE);
+            //tittle State
+            if(gp.gameState==gp.tittleState){
+                drawTittleScreen();
+            }
+            //play state
+            if (gp.gameState==gp.playState) {
+
+            }
+            //Pause state
+            if (gp.gameState == gp.pauseState) {
+                drawPauseScreen();
+            }
+            // dialogue state
+            if(gp.gameState==gp.dialogueState) {
+                drawDialogueScreen();
+            }
+            //player State
+            if(gp.gameState== gp.characterState){
+                drawInventory();
+            }
+            //transitionState
+            if(gp.gameState==gp.transitionState){
+                drawTransition();
+            }
+            //buyingState
+            if(gp.gameState== gp.buyingState){
+                drawBuyingScreen();
+            }
+            if(gp.gameState==gp.messageState){
+                drawMessage(message);
+
+            }
+            if(gp.gameState==gp.talkingToSecuState){
+                drawTalkingtoSecuScreen();
+            }
+            if(gp.gameState==gp.talkingToAmber){
+                drawTradingScreen();
+            }
+            if(gp.gameState==gp.tradingState){
+                drawTradingScreen();
+            }
+            //about state
+            if(gp.gameState==gp.aboutState){
+                drawAboutScreen();
+            }
+            if(gp.gameState==gp.aboutStateGame){
+                drawAboutGameScreen();
+            }
+            if(gp.gameState==gp.aboutStateHowToPlay){
+                drawAboutHowToPlayScreen();
+            }
+            if(gp.gameState==gp.aboutStateCreator){
+                drawAboutCreatorScreen();
+            }
+        }
     }
     public void drawTittleScreen(){
         g2.setColor(Color.black);

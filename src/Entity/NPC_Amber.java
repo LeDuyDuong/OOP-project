@@ -20,8 +20,8 @@ public class NPC_Amber extends Entity {
 
         }
         public void setDialogue(){
-            dialogues[0]="AMBER : ia tren giuong la 1 tro dua thu vi";
-            dialogues[1]="YOU : Toi cung nghi vay";
+            dialogues[0]="AMBER : I have lost my bag, that is everything to me";
+            dialogues[1]="YOU : I will find for you";
         }
     public void speak(){
         if(actionCounter ==0){
