@@ -155,39 +155,39 @@ public class KeyHandler implements KeyListener {
                 }
             }
         }
-            //Pause State
+        //Pause State
         else if(gp.gameState==gp.pauseState){
-                if(code == KeyEvent.VK_UP) {
-                    gp.ui.commandNum--;
-                    if(gp.ui.commandNum<0){
-                        gp.ui.commandNum=1;
-                    }
+            if(code == KeyEvent.VK_UP) {
+                gp.ui.commandNum--;
+                if(gp.ui.commandNum<0){
+                    gp.ui.commandNum=1;
                 }
-                if(code == KeyEvent.VK_DOWN) {
-                    gp.ui.commandNum++;
-                    if(gp.ui.commandNum>1){
-                        gp.ui.commandNum=0;
-                    }
+            }
+            if(code == KeyEvent.VK_DOWN) {
+                gp.ui.commandNum++;
+                if(gp.ui.commandNum>1){
+                    gp.ui.commandNum=0;
                 }
-                if(code==KeyEvent.VK_ENTER){
-                    if(gp.ui.commandNum==0){
-                        gp.gameState= gp.playState;
-                        //gp.playMusic(0);
-                    }
-                    if(gp.ui.commandNum==1){
-                        gp.gameState=gp.tittleState;
-                        gp.sound.stop();
-                        gp.ui.commandNum=0;
-                    }
+            }
+            if(code==KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum==0){
+                    gp.gameState= gp.playState;
+                    //gp.playMusic(0);
                 }
+                if(gp.ui.commandNum==1){
+                    gp.gameState=gp.tittleState;
+                    gp.sound.stop();
+                    gp.ui.commandNum=0;
+                }
+            }
         }
-            //Dialogue State
+        //Dialogue State
         else if(gp.gameState==gp.dialogueState){
             if(code==KeyEvent.VK_ENTER){
                 gp.gameState=gp.playState;
             }
         }
-            //Character State
+        //Character State
         else if(gp.gameState==gp.characterState){
             if(code== KeyEvent.VK_E){
                 gp.gameState= gp.playState;
@@ -333,7 +333,7 @@ public class KeyHandler implements KeyListener {
                 }
             }
         }
-    //talking to trader
+        //talking to trader
         else if (gp.gameState==gp.tradingState) {
             if(code == KeyEvent.VK_UP) {
                 gp.ui.commandNum--;
@@ -371,8 +371,8 @@ public class KeyHandler implements KeyListener {
                                 break;
                             }
                         }
-                    //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
-                    //gp.gameState=gp.dialogueState;
+                        //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
+                        //gp.gameState=gp.dialogueState;
                     }else if(gp.player.hasCoffe==0){
                         gp.ui.setMessage("Stop joking dude, or else I'll make you my Loli\n(͡° ͜ʖ ͡°)");
                     }

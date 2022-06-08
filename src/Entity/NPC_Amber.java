@@ -20,11 +20,10 @@ public class NPC_Amber extends Entity {
 
         }
         public void setDialogue(){
-            dialogues[0]="AMBER : I have lost my bag,someone stole it\n" +
-                    "You:\n" +
-                    "AMBER:\n" +
-                    "You:";
-            dialogues[1]="AMBER: Have you found my bag yet? ";
+
+            dialogues[0]="AMBER: I have lost my bag, that is everything to me. ";
+            dialogues[1]="AMBER: Please find it for me, Mr. Detective.";
+
         }
     public void speak(){
         if(actionCounter ==0){

@@ -267,6 +267,13 @@ public class AssetSetter {
         gp.obj[7][0].worldY = 16 * gp.tileSize;
 
         /* Room A303.5*/
+        gp.obj[11][0]= new OBJ_Lolipop(gp);
+        gp.obj[11][0].worldX= gp.tileSize*13;
+        gp.obj[11][0].worldY = gp.tileSize * 18;
+
+        gp.obj[6][0]= new OBJ_Backpack(gp);
+        gp.obj[6][0].worldX= gp.tileSize*13;
+        gp.obj[6][0].worldY = gp.tileSize * 8;
     }
     public void setNPC() {
         int mapNum = 0;
@@ -286,7 +293,7 @@ public class AssetSetter {
         //NPC_Amber
         gp.npc[mapNum][3] = new NPC_Amber(gp);
         gp.npc[mapNum][3].worldX = gp.tileSize * 2;
-        gp.npc[mapNum][3].worldY = gp.tileSize * 15;
+        gp.npc[mapNum][3].worldY = gp.tileSize * 25;
 
         //semi-NPC vending machine
         gp.npc[mapNum][4] = new OBJ_Vending_Machine(gp);
@@ -306,12 +313,6 @@ public class AssetSetter {
         gp.npc[3][0].worldX = gp.tileSize * 3;
         gp.npc[3][0].worldY = gp.tileSize * 9;
 
-        gp.obj[11][0]= new OBJ_Lolipop(gp);
-        gp.obj[11][0].worldX= gp.tileSize*13;
-        gp.obj[11][0].worldY = gp.tileSize * 18;
 
-        gp.obj[6][0]= new OBJ_Backpack(gp);
-        gp.obj[6][0].worldX= gp.tileSize*13;
-        gp.obj[6][0].worldY = gp.tileSize * 8;
     }
 }
