@@ -18,6 +18,7 @@ public class Player extends Entity{
     public int hasCoin=0;
     public int hasLoli=0;
     public int hasCoffe=0;
+    public int hasOwl = 0;
     public ArrayList<Entity> inventory= new ArrayList<>(20);
     public final int inventorySize=20;
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -157,6 +158,7 @@ public class Player extends Entity{
                 case "Coin":
                     hasCoin++;
                     gp.ui.setMessage("YOU FOUND A COIN");
+                    gp.obj[gp.currentMap][i] = null;
                     gp.gameState= gp.messageState;
                     inventory.add(new OBJ_Coin(gp));
                     gp.obj[gp.currentMap][i] = null;
@@ -165,11 +167,13 @@ public class Player extends Entity{
                     Entity a= new OBJ_Paper(gp);
                     a.description=gp.obj[gp.currentMap][i].description;
                     inventory.add(a);
+                    gp.obj[gp.currentMap][i] = null;
                     gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
                     gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Paper_Yellow":
+                    gp.obj[gp.currentMap][i] = null;
                     a= new OBJ_Paper_Yellow(gp);
                     a.description=gp.obj[gp.currentMap][i].description;
                     inventory.add(a);
@@ -192,6 +196,7 @@ public class Player extends Entity{
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Owl":
+                    hasOwl++;
                     inventory.add(new OBJ_Owl(gp));
                     gp.obj[gp.currentMap][i] = null;
                     gp.ui.setMessage("YOU FOUND A LITTLE OWL");

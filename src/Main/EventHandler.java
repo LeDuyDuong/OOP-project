@@ -66,7 +66,15 @@ public class EventHandler {
             else if (hit(5,6,5,"any")==true) {teleport(3,15,8);gp.playSE(1);}
 
             //enter room A3.3-4
-            if (hit(3,21, (25), "up") == true) {teleport(6,13,19); gp.playSE(1);}
+            if (hit(3,21, (25), "up") == true) {
+                if (gp.player.hasOwl==1) {
+                    teleport(6,13,19); gp.playSE(1);
+                } else if (gp.player.hasOwl==0) {
+                    gp.ui.setMessage("Door is locked, Find a SPECIAL KEY to open it" + "\nWatch Harry Potter and The Philosopher's Stone!");
+                    gp.gameState= gp.messageState;
+                }
+            }
+
             else if (hit(6,13,19,"any")==true) {teleport(3,21,25);gp.playSE(1);}
 
             //enter room B2.6

@@ -40,7 +40,7 @@ public class NPC_Trader extends Entity {
         }
     }
     public void setDialogue(){
-        dialogues[0]="aaa";
+        dialogues[0]="Aaaah!So, you are the detective guy." + "\nAlright, get me a LOLIpop in room B2.6 \nand I get you some hints.";
         dialogues[1]="You got that Juicy LOLIpop yet man ?";
         dialogues[2]="aa";
     }
