@@ -356,8 +356,7 @@ public class KeyHandler implements KeyListener {
                     if(gp.player.hasLoli>0){
                         gp.player.hasLoli--;
                         gp.gameState=gp.messageState;
-                        //gp.ui.setMessage("Good job! Here're the stuffs i promised");
-                        gp.ui.setMessage("Good job! Here're the stuffs i promised:\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY");
+                        gp.ui.setMessage("Good job!");
                         gp.npc[0][7].actionCounter++;
                         gp.player.inventory.add(new OBJ_Key(gp));
                         gp.player.hasKey++;
@@ -378,11 +377,11 @@ public class KeyHandler implements KeyListener {
                     //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
                     //gp.gameState=gp.dialogueState;
                     }else if(gp.player.hasCoffe==0){
-                        gp.ui.setMessage("Stop joking man. or else I'll make you my LOLI\n (͡° ͜ʖ ͡°)");
+                        gp.ui.setMessage("Amber : Oh no, you haven't found my bag yet. Please return \nafter you have located my luggage.");
                     }
                 }
                 if(gp.ui.commandNum==1){
-                    gp.ui.setMessage("Hurry up bro");
+                    gp.ui.setMessage("Amber : I'll stay here till you discover my luggage.");
                     gp.gameState= gp.messageState;
                     gp.ui.commandNum=0;
                 }
