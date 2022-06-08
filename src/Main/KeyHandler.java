@@ -262,18 +262,6 @@ public class KeyHandler implements KeyListener {
                     if(gp.player.hasCoffe>0){
                         gp.player.hasCoffe--;
                         gp.ui.setMessage("Ok, you are now free to enter");
-                        try {
-                            gp.npc[2][0].up1 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-                            gp.npc[2][0].up2 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-                            gp.npc[2][0].down1 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-                            gp.npc[2][0].down2 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-                            gp.npc[2][0].left1 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-                            gp.npc[2][0].left2 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-                            gp.npc[2][0].right1 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-                            gp.npc[2][0].right2 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-                        } catch(IOException exception) {
-                            exception.printStackTrace();
-                        }
                         gp.npc[2][0].actionCounter++;
                         //gp.gameState= gp.transitionState;
                         gp.npc[2][0].direction="down";

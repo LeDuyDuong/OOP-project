@@ -28,8 +28,8 @@ public class NPC_Secu extends Entity {
         try {
             up1 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/NPC-security/havecoffe.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/NPC-security/havecoffe.png"));
             left1 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
             left2 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
             right1 = ImageIO.read(getClass().getResourceAsStream("/Student/security.png"));
