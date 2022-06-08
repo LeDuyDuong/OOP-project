@@ -228,13 +228,13 @@ public class AssetSetter {
 //        gp.obj[1][38].worldY = 8 * gp.tileSize;
 
         //paper
-        gp.obj[1][39] = new OBJ_Paper(gp);
-        gp.obj[1][39].setDescription("roses are heads\n" +
+        gp.obj[1][0] = new OBJ_Paper(gp);
+        gp.obj[1][0].setDescription("roses are heads\n" +
                 "violet are shoes\n" +
                 "his skin is black\n" +
                 "and his shirt is blue");
-        gp.obj[1][39].worldX = 13 * gp.tileSize;
-        gp.obj[1][39].worldY = 8 * gp.tileSize;
+        gp.obj[1][0].worldX = 13 * gp.tileSize;
+        gp.obj[1][0].worldY = 8 * gp.tileSize;
 
         /* Map 2 */
 
@@ -298,12 +298,12 @@ public class AssetSetter {
         gp.npc[mapNum][0].worldX = gp.tileSize * 23;
         gp.npc[mapNum][0].worldY = gp.tileSize * 25;
 
-        gp.npc[0][3] = new NPC_Trader(gp);
-        gp.npc[0][3].worldX = gp.tileSize * 23;
-        gp.npc[0][3].worldY = gp.tileSize * 25;
+        gp.npc[0][7] = new NPC_Trader(gp);
+        gp.npc[0][7].worldX = gp.tileSize * 23;
+        gp.npc[0][7].worldY = gp.tileSize * 25;
 
-        gp.obj[0][3]= new OBJ_Lolipop(gp);
-        gp.obj[0][3].worldX= gp.tileSize*24;
-        gp.obj[0][3].worldY = gp.tileSize * 25;
+        gp.obj[11][0]= new OBJ_Lolipop(gp);
+        gp.obj[11][0].worldX= gp.tileSize*13;
+        gp.obj[11][0].worldY = gp.tileSize * 18;
     }
 }

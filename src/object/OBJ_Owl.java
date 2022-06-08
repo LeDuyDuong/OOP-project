@@ -9,6 +9,6 @@ public class OBJ_Owl extends Entity {
         name = "Owl";
         down1=setup("/objects/owl");
         //collision = false;
-        description= "Use me as a key to a wall. A.3. 3.5";
+        description= "Use me as a key to a wall.\n A.3. 3.5";
     }
 }

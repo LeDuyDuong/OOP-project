@@ -317,28 +317,12 @@ public class KeyHandler implements KeyListener {
                     gp.gameState=gp.messageState;
                     if(gp.player.hasLoli>0){
                         gp.player.hasLoli--;
-                        gp.gameState=gp.dialogueState;
+                        gp.gameState=gp.messageState;
                         //gp.ui.setMessage("Good job! Here're the stuffs i promised");
-                        gp.ui.setMessage("YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY");
-
-//                        try {
-//                            gp.npc[2][0].up1 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-//                            gp.npc[2][0].up2 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-//                            gp.npc[2][0].down1 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-//                            gp.npc[2][0].down2 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-//                            gp.npc[2][0].left1 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-//                            gp.npc[2][0].left2 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-//                            gp.npc[2][0].right1 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-//                            gp.npc[2][0].right2 = ImageIO.read(getClass().getResourceAsStream("/Student/security_with_coffee.png"));
-//                        } catch(IOException exception) {
-//                            exception.printStackTrace();
-//                        }
+                        gp.ui.setMessage("Good job! Here're the stuffs i promised:\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY");
                         gp.npc[0][3].actionCounter++;
-//                        //gp.gameState= gp.transitionState;
-//                        gp.npc[2][0].direction="down";
-//                        gp.npc[2][0].worldX = gp.tileSize * 22;
-//                        gp.npc[2][0].worldY = gp.tileSize * 25;
                         gp.player.inventory.add(new OBJ_Key(gp));
+                        gp.player.hasKey++;
                         gp.player.inventory.add(new OBJ_Paper(gp));
                         for(Entity ent : gp.player.inventory){
                             if(ent instanceof OBJ_Paper && ent.description==""){

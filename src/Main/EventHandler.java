@@ -54,7 +54,14 @@ public class EventHandler {
             else if (hit(1,13,19,"any")==true) {teleport(2,23,25);gp.playSE(1);}
 
             //enter room B3.7
-            if (hit(3,15, 8, "up") == true) {teleport(5,13,22); gp.playSE(1);}
+            if (hit(3,15, 8, "up") == true) {
+                if(gp.player.hasKey==1){
+                    teleport(5,13,22); gp.playSE(1);
+                } else if (gp.player.hasKey==0) {
+                    gp.ui.setMessage("Door is locked, Find a key to open it");
+                    gp.gameState= gp.messageState;
+                }
+            }
             else if (hit(5,13,22,"any")==true) {teleport(3,15,8);gp.playSE(1);}
             else if (hit(5,6,5,"any")==true) {teleport(3,15,8);gp.playSE(1);}
 
@@ -122,9 +129,7 @@ public class EventHandler {
             //Win b2.6
             else if (hit(11,13,17,"any")==true) {teleport(2,19,8);}
 
-            else if (hit(0,26,26,"any")==true){
-                gp.ui.drawSubWindow(120,40, 500, 500);
-            }
+
 
 
         }
