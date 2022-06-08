@@ -162,13 +162,17 @@ public class Player extends Entity{
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Paper":
-                    inventory.add(new OBJ_Paper(gp));
+                    Entity a= new OBJ_Paper(gp);
+                    a.description=gp.obj[gp.currentMap][i].description;
+                    inventory.add(a);
                     gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
                     gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Paper_Yellow":
-                    inventory.add(new OBJ_Paper_Yellow(gp));
+                    a= new OBJ_Paper_Yellow(gp);
+                    a.description=gp.obj[gp.currentMap][i].description;
+                    inventory.add(a);
                     gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
                     gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;
