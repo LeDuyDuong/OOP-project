@@ -14,7 +14,7 @@ public class Player extends Entity{
     KeyHandler keyHandler;
     public final int screenX;
     public final int screenY;
-    int hasKey = 0;
+    public int hasKey = 0;
     public int hasCoin=0;
     public int hasLoli=0;
     public int hasCoffe=0;

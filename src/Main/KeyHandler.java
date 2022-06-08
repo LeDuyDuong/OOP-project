@@ -269,9 +269,9 @@ public class KeyHandler implements KeyListener {
                         gp.ui.setMessage("Good job! Here're the stuffs i promised:\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY");
                         gp.npc[0][3].actionCounter++;
                         gp.player.inventory.add(new OBJ_Key(gp));
+                        gp.player.hasKey++;
                         gp.player.inventory.add(new OBJ_Paper(gp));
                         for(Entity ent : gp.player.inventory){
-
                             if(ent instanceof OBJ_Paper && ent.description==""){
                                 ent.description="-...  ...--  --...";
                                 break;
