@@ -18,8 +18,8 @@ public class AssetSetter {
         //key 1
         int mapNum = 0;
         gp.obj[0][0] = new OBJ_Coin(gp);
-        gp.obj[0][0].worldX = 11 * gp.tileSize;
-        gp.obj[0][0].worldY = 19 * gp.tileSize;
+        gp.obj[0][0].worldX = 16 * gp.tileSize;
+        gp.obj[0][0].worldY = 17 * gp.tileSize;
 
         gp.obj[mapNum][2] = new OBJ_Informer(gp);
         gp.obj[mapNum][2].worldX = 3 * gp.tileSize;
@@ -58,8 +58,8 @@ public class AssetSetter {
         gp.obj[mapNum][5].worldY = 32 * gp.tileSize;*/
       
         gp.obj[mapNum][5] = new OBJ_Paper_Yellow(gp);
-        gp.obj[mapNum][5].worldX = 12 * gp.tileSize;
-        gp.obj[mapNum][5].worldY = 19 * gp.tileSize;
+        gp.obj[mapNum][5].worldX = 18 * gp.tileSize;
+        gp.obj[mapNum][5].worldY = 17 * gp.tileSize;
 
         /* Room 1 */
         //Desk 1
@@ -266,15 +266,7 @@ public class AssetSetter {
         gp.obj[7][0].worldX = 12 * gp.tileSize;
         gp.obj[7][0].worldY = 16 * gp.tileSize;
 
-        // Lolipop trong win của B2.6
-        gp.obj[11][0]= new OBJ_Lolipop(gp);
-        gp.obj[11][0].worldX= gp.tileSize*13;
-        gp.obj[11][0].worldY = gp.tileSize * 18;
-
-        // Backpack trong A3.3.5
-        gp.obj[6][0]= new OBJ_Backpack(gp);
-        gp.obj[6][0].worldX= gp.tileSize*13;
-        gp.obj[6][0].worldY = gp.tileSize * 8;
+        /* Room A303.5*/
     }
     public void setNPC() {
         int mapNum = 0;
@@ -294,24 +286,32 @@ public class AssetSetter {
         //NPC_Amber
         gp.npc[mapNum][3] = new NPC_Amber(gp);
         gp.npc[mapNum][3].worldX = gp.tileSize * 2;
-        gp.npc[mapNum][3].worldY = gp.tileSize * 23;
+        gp.npc[mapNum][3].worldY = gp.tileSize * 15;
 
         //semi-NPC vending machine
         gp.npc[mapNum][4] = new OBJ_Vending_Machine(gp);
         gp.npc[mapNum][4].worldX = gp.tileSize * 25;
         gp.npc[mapNum][4].worldY = gp.tileSize * 25;
         // NPC-3
+        mapNum=2;
+
 //        gp.npc[mapNum][5] = new NPC_student3(gp);
 //        gp.npc[mapNum][5].worldX = gp.tileSize * 2;
 //        gp.npc[mapNum][5].worldY = gp.tileSize * 20;
-        //security
-        gp.npc[2][0] = new NPC_Secu(gp);
-        gp.npc[2][0].worldX = gp.tileSize * 23;
-        gp.npc[2][0].worldY = gp.tileSize * 25;
+        gp.npc[mapNum][0] = new NPC_Secu(gp);
+        gp.npc[mapNum][0].worldX = gp.tileSize * 23;
+        gp.npc[mapNum][0].worldY = gp.tileSize * 25;
 
-        //trader da đen
-        gp.npc[3][1] = new NPC_Trader(gp);
-        gp.npc[3][1].worldX = gp.tileSize * 3;
-        gp.npc[3][1].worldY = gp.tileSize * 9;
+        gp.npc[3][7] = new NPC_Trader(gp);
+        gp.npc[3][7].worldX = gp.tileSize * 15;
+        gp.npc[3][7].worldY = gp.tileSize * 25;
+
+        gp.obj[11][0]= new OBJ_Lolipop(gp);
+        gp.obj[11][0].worldX= gp.tileSize*13;
+        gp.obj[11][0].worldY = gp.tileSize * 18;
+
+        gp.obj[6][0]= new OBJ_Backpack(gp);
+        gp.obj[6][0].worldX= gp.tileSize*13;
+        gp.obj[6][0].worldY = gp.tileSize * 8;
     }
 }

@@ -326,11 +326,11 @@ public class KeyHandler implements KeyListener {
                         //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
                         //gp.gameState=gp.dialogueState;
                     }else if(gp.player.hasCoffe==0){
-                        gp.ui.setMessage("Have you found my bag yet?");
+                        gp.ui.setMessage("Amber : Oh no, you haven't found my bag yet. Please return \nafter you have located my luggage.");
                     }
                 }
                 if(gp.ui.commandNum==1){
-                    gp.ui.setMessage("Please find for me, it is important for me.");
+                    gp.ui.setMessage("Amber : I'll stay here till you discover my luggage.");
                     gp.gameState= gp.messageState;
                     gp.ui.commandNum=0;
                 }
@@ -377,11 +377,11 @@ public class KeyHandler implements KeyListener {
                     //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
                     //gp.gameState=gp.dialogueState;
                     }else if(gp.player.hasCoffe==0){
-                        gp.ui.setMessage("Amber : Oh no, you haven't found my bag yet. Please return \nafter you have located my luggage.");
+                        gp.ui.setMessage("");
                     }
                 }
                 if(gp.ui.commandNum==1){
-                    gp.ui.setMessage("Amber : I'll stay here till you discover my luggage.");
+                    gp.ui.setMessage("");
                     gp.gameState= gp.messageState;
                     gp.ui.commandNum=0;
                 }
