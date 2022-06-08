@@ -15,10 +15,10 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
     public int hasKey = 0;
-    public int hasCoin=0;
-    public int hasLoli=0;
-    public int hasBag=0;
-    public int hasCoffe=0;
+    public int hasCoin = 0;
+    public int hasLoli = 0;
+    public int hasBag = 0;
+    public int hasCoffe = 0;
     public int hasOwl = 0;
     public ArrayList<Entity> inventory= new ArrayList<>(20);
     public final int inventorySize=20;
@@ -139,12 +139,6 @@ public class Player extends Entity{
             String objectName = gp.obj[gp.currentMap][i].name;
 
             switch (objectName){
-                case "Key":
-                    gp.obj[gp.currentMap][i] = null;
-                    hasKey++;
-                    System.out.println("Key:" + hasKey);
-                    inventory.add(new OBJ_Key(gp));
-                    break;
 //                case "Door":
 //                    if(hasKey>0) {
 //                        gp.obj[gp.currentMap][i] = null;
@@ -157,12 +151,25 @@ public class Player extends Entity{
 //                    inventory.add(new OBJ_Coffee_cup(gp));
 //                    break;
                 case "Coin":
+                    Entity c = new OBJ_Coin(gp);
+                    inventory.add(c);
                     hasCoin++;
                     gp.ui.setMessage("YOU FOUND A COIN");
-                    gp.obj[gp.currentMap][i] = null;
                     gp.gameState= gp.messageState;
-                    inventory.add(new OBJ_Coin(gp));
                     gp.obj[gp.currentMap][i] = null;
+                    /*
+                    inventory.add(new OBJ_Paper_B26(gp));
+                    gp.ui.setMessage("YOU FOUND A HINT PAPER");
+                    gp.gameState= gp.messageState;
+                    gp.obj[gp.currentMap][i] = null;
+                    break;
+                    */
+                    break;
+                case "Key":
+                    gp.obj[gp.currentMap][i] = null;
+                    hasKey++;
+                    System.out.println("Key:" + hasKey);
+                    inventory.add(new OBJ_Key(gp));
                     break;
                 case "Paper":
                     Entity a= new OBJ_Paper(gp);
@@ -174,9 +181,9 @@ public class Player extends Entity{
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Paper_Yellow":
-                    a= new OBJ_Paper_Yellow(gp);
-                    a.description=gp.obj[gp.currentMap][i].description;
-                    inventory.add(a);
+                    Entity b= new OBJ_Paper_Yellow(gp);
+                    b.description=gp.obj[gp.currentMap][i].description;
+                    inventory.add(b);
                     gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
                     gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;
@@ -190,7 +197,6 @@ public class Player extends Entity{
                     break;
                 case "Paper_B26":
                     inventory.add(new OBJ_Paper_B26(gp));
-                    gp.obj[gp.currentMap][i] = null;
                     gp.ui.setMessage("YOU FOUND A HINT PAPER");
                     gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;

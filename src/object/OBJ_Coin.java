@@ -10,8 +10,7 @@ public class OBJ_Coin extends Entity {
         super(gp);
         name = "Coin";
         down1=setup("/objects/coin");
-        description= "["+name+"]\n" + "USED TO BUY STUFF";
         //collision=false;
-
+        description= "["+name+"]\n" + "USED TO BUY STUFF";
     }
 }

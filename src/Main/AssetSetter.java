@@ -17,9 +17,9 @@ public class AssetSetter {
 
         //key 1
         int mapNum = 0;
-        gp.obj[mapNum][0] = new OBJ_Coin(gp);
-        gp.obj[mapNum][0].worldX = 7 * gp.tileSize;
-        gp.obj[mapNum][0].worldY = 17 * gp.tileSize;
+        gp.obj[0][0] = new OBJ_Coin(gp);
+        gp.obj[0][0].worldX = 16 * gp.tileSize;
+        gp.obj[0][0].worldY = 17 * gp.tileSize;
 
         gp.obj[mapNum][2] = new OBJ_Informer(gp);
         gp.obj[mapNum][2].worldX = 3 * gp.tileSize;
