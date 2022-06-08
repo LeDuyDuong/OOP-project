@@ -51,10 +51,63 @@ public class KeyHandler implements KeyListener {
                     gp.playMusic(0);
                 }
                 if(gp.ui.commandNum==1){
-
+                    gp.gameState= gp.aboutState;
                 }
                 if(gp.ui.commandNum==2){
                     System.exit(0);
+                }
+            }
+        }
+
+        else if(gp.gameState== gp.aboutState){
+            if(code == KeyEvent.VK_UP) {
+                gp.ui.commandNum--;
+                if(gp.ui.commandNum<0){
+                    gp.ui.commandNum=3;
+                }
+            }
+            if(code == KeyEvent.VK_DOWN) {
+                gp.ui.commandNum++;
+                if(gp.ui.commandNum>3){
+                    gp.ui.commandNum=0;
+                }
+            }
+            if(code==KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum==0){
+                    gp.gameState= gp.aboutStateHowToPlay;
+                }
+                if(gp.ui.commandNum==1){
+                    gp.gameState= gp.aboutStateGame;
+                }
+                if(gp.ui.commandNum==2){
+                    gp.gameState= gp.aboutStateCreator;
+                }
+                if(gp.ui.commandNum==3){
+                    gp.gameState= gp.tittleState;
+                }
+
+            }
+        }
+
+        else if(gp.gameState== gp.aboutStateGame){
+            if(code==KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum==1){
+                    gp.gameState= gp.aboutState;
+                }
+            }
+        }
+
+        else if(gp.gameState== gp.aboutStateCreator){
+            if(code==KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum==2){
+                    gp.gameState= gp.aboutState;
+                }
+            }
+        }
+        else if(gp.gameState== gp.aboutStateHowToPlay){
+            if(code==KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum==0){
+                    gp.gameState= gp.aboutState;
                 }
             }
         }

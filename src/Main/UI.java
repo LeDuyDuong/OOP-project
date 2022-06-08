@@ -14,6 +14,8 @@ public class UI {
     public int commandNum= 0;
     public int slotCol=0;
     public int slotRow=0;
+    public int namePosition = 60;
+    public int scriptPosition = 100;
     int counter=0;
     public Entity npc;
     public UI (GamePanel gp) {
@@ -66,6 +68,20 @@ public class UI {
         if(gp.gameState==gp.tradingState){
             drawTradingScreen();
         }
+        //about state
+        if(gp.gameState==gp.aboutState){
+            drawAboutScreen();
+        }
+        if(gp.gameState==gp.aboutStateGame){
+            drawAboutGameScreen();
+        }
+        if(gp.gameState==gp.aboutStateHowToPlay){
+            drawAboutHowToPlayScreen();
+        }
+        if(gp.gameState==gp.aboutStateCreator){
+            drawAboutCreatorScreen();
+        }
+
 
     }
     public void drawTittleScreen(){
@@ -330,6 +346,226 @@ public class UI {
         y+=gp.tileSize;
         g2.drawString(Text, x, y);
         if(commandNum==1){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+    }
+
+    public void drawAboutScreen(){
+        g2.setColor(Color.black);
+
+        //g2.drawImage(img,0,0,gp.screenWidth, gp.screenHeight, null);
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+        //Tittle name
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 69F));
+        String Text= "ABOUT";
+        int x= getXForCenteredText(Text);
+        int y= gp.tileSize*3;
+        g2.setColor(Color.gray);
+        g2.drawString(Text, x+3,y+3);
+        g2.setColor(Color.WHITE);
+        g2.drawString(Text, x,y);
+
+
+        //DECTECTIVE
+        x=gp.screenWidth/2 -(gp.tileSize/2)-20;
+        y+=gp.tileSize+2;
+        g2.drawImage(gp.player.down1, x, y, gp.tileSize*2, gp.tileSize*2, null);
+        //MENU
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
+        Text= "HOW TO PLAY";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize*3.5;
+        g2.drawString(Text, x, y);
+        if(commandNum==0){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+        Text= "GAME";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        if(commandNum==1){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+        Text= "ABOUT US";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        if(commandNum==2){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+        Text= "BACK";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        if(commandNum==3){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+    }
+
+    public void drawAboutGameScreen(){
+        g2.setColor(Color.black);
+
+        //g2.drawImage(img,0,0,gp.screenWidth, gp.screenHeight, null);
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+        //Tittle name
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 69F));
+        String Text= "GAME";
+        int x= getXForCenteredText(Text);
+        int y= gp.tileSize*3;
+        g2.setColor(Color.gray);
+        g2.drawString(Text, x+3,y+3);
+        g2.setColor(Color.WHITE);
+        g2.drawString(Text, x,y);
+        //MENU
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 20F));
+        Text= "The game requires the player to track down a thief who has stolen";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize+4;
+        g2.drawString(Text, x, y);
+        Text= "student's bag. Players will take on the role of a detective";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize+4;
+        g2.drawString(Text, x, y);
+        Text= "in order to track down and apprehend the . The game has";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize+4;
+        g2.drawString(Text, x, y);
+        Text= "challenges that test the player's abilities; as a detective,";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize+4;
+        g2.drawString(Text, x, y);
+        Text= "you must solve all the problems in order to catch the thief.";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize+4;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+        Text= "BACK";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize*3;
+        g2.drawString(Text, x, y);
+        if(commandNum==1){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+    }
+    public void drawAboutCreatorScreen(){
+        g2.setColor(Color.black);
+
+        //g2.drawImage(img,0,0,gp.screenWidth, gp.screenHeight, null);
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+        //Tittle name
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 60F));
+        String Text= "ABOUT US";
+        int x= getXForCenteredText(Text);
+        int y= gp.tileSize+5;
+        g2.setColor(Color.gray);
+        g2.drawString(Text, x+3,y+3);
+        g2.setColor(Color.WHITE);
+        g2.drawString(Text, x,y);
+        //MENU
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+        Text= "Lê Đào Thành Vinh";
+        x=namePosition;
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 25F));
+        Text= "Sục cặc chéo";
+        x=scriptPosition;
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+        Text= "Hồ Hữu Hiệp";
+        x=namePosition;
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 25F));
+        Text= "Đẹp trai khoai to sáu múi";
+        x=scriptPosition;
+        y+=gp.tileSize-4;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+        Text= "Võ Thành Khoa";
+        x=namePosition;
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 25F));
+        Text= "Boy one champ gangplank";
+        x=scriptPosition;
+        y+=gp.tileSize-4;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+        Text= "Lê Duy Dương";
+        x=namePosition;
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 25F));
+        Text= "Chưa có người yêu";
+        x=scriptPosition;
+        y+=gp.tileSize-4;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+        Text= "BACK";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize+10;
+        g2.drawString(Text, x, y);
+        if(commandNum==2){
+            g2.drawString(">", x-gp.tileSize,y);
+        }
+    }
+
+    public void drawAboutHowToPlayScreen(){
+        g2.setColor(Color.black);
+
+        //g2.drawImage(img,0,0,gp.screenWidth, gp.screenHeight, null);
+        g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+        //Tittle name
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 69F));
+        String Text= "HOW TO PLAY";
+        int x= getXForCenteredText(Text);
+        int y= gp.tileSize*2;
+        g2.setColor(Color.gray);
+        g2.drawString(Text, x+3,y+3);
+        g2.setColor(Color.WHITE);
+        g2.drawString(Text, x,y);
+        //MENU
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 25F));
+        Text= "Up key: Go up";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize+3;
+        g2.drawString(Text, x, y);
+        Text= "Down key: Go down";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        Text= "Right key: Go right";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        Text= "Left key: Go left";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        Text= "Enter: Interact things";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        Text= "E: Open inventory";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        Text= "P: Pause game";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize;
+        g2.drawString(Text, x, y);
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
+        Text= "BACK";
+        x=getXForCenteredText(Text);
+        y+=gp.tileSize*2;
+        g2.drawString(Text, x, y);
+        if(commandNum==0){
             g2.drawString(">", x-gp.tileSize,y);
         }
     }
