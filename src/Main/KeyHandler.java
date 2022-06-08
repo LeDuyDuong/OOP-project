@@ -286,6 +286,58 @@ public class KeyHandler implements KeyListener {
                 }
             }
         }
+        //talking to Amber
+        else if (gp.gameState==gp.talkingToAmber) {
+            if(code == KeyEvent.VK_UP) {
+                gp.ui.commandNum--;
+                if(gp.ui.commandNum<0){
+                    gp.ui.commandNum=1;
+                }
+            }
+            if(code == KeyEvent.VK_DOWN) {
+                gp.ui.commandNum++;
+                if(gp.ui.commandNum>1){
+                    gp.ui.commandNum=0;
+                }
+            }
+            if(code==KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum==0){
+                    gp.gameState=gp.messageState;
+                    if(gp.player.hasLoli>0){
+                        gp.player.hasLoli--;
+                        gp.gameState=gp.messageState;
+                        //gp.ui.setMessage("Good job! Here're the stuffs i promised");
+                        gp.ui.setMessage("Good job! Here're the stuffs i promised:\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY");
+                        gp.npc[0][3].actionCounter++;
+                        gp.player.inventory.add(new OBJ_Key(gp));
+                        gp.player.hasKey++;
+                        gp.player.inventory.add(new OBJ_Paper(gp));
+                        for(Entity ent : gp.player.inventory){
+                            if(ent instanceof OBJ_Paper && ent.description==""){
+                                ent.description="-...  ...--  --...";
+                                break;
+                            }
+                        }
+                        for(Entity ent : gp.player.inventory){
+                            if(ent instanceof OBJ_Lolipop){
+                                gp.player.hasLoli++;
+                                gp.player.inventory.remove(ent);
+                                break;
+                            }
+                        }
+                        //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
+                        //gp.gameState=gp.dialogueState;
+                    }else if(gp.player.hasCoffe==0){
+                        gp.ui.setMessage("Stop joking man. or else I'll make you my LOLI\n (͡° ͜ʖ ͡°)");
+                    }
+                }
+                if(gp.ui.commandNum==1){
+                    gp.ui.setMessage("Hurry up bro");
+                    gp.gameState= gp.messageState;
+                    gp.ui.commandNum=0;
+                }
+            }
+        }
     //talking to trader
         else if (gp.gameState==gp.tradingState) {
             if(code == KeyEvent.VK_UP) {
@@ -308,7 +360,7 @@ public class KeyHandler implements KeyListener {
                         gp.gameState=gp.messageState;
                         //gp.ui.setMessage("Good job! Here're the stuffs i promised");
                         gp.ui.setMessage("Good job! Here're the stuffs i promised:\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY");
-                        gp.npc[0][3].actionCounter++;
+                        gp.npc[0][7].actionCounter++;
                         gp.player.inventory.add(new OBJ_Key(gp));
                         gp.player.hasKey++;
                         gp.player.inventory.add(new OBJ_Paper(gp));

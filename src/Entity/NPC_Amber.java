@@ -24,7 +24,20 @@ public class NPC_Amber extends Entity {
             dialogues[1]="YOU : Toi cung nghi vay";
         }
     public void speak(){
-        super.speak();
+        if(actionCounter ==0){
+            gp.ui.currentDialogue=dialogues[actionCounter];
+            gp.gameState=gp.messageState;
+            gp.ui.drawMessage(gp.ui.currentDialogue);
+            actionCounter++;
+            System.out.println(actionCounter);
+        } else if (actionCounter ==1) {
+            gp.ui.currentDialogue=dialogues[actionCounter];
+            gp.gameState=gp.talkingToAmber;
+            //actionCounter++;
+        } else if (actionCounter ==2) {
+            gp.ui.currentDialogue=dialogues[actionCounter];
+            gp.gameState=gp.dialogueState;
+        }
     }
         public void setImage() {
             try {

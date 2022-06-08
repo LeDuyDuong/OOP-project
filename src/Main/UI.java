@@ -65,6 +65,9 @@ public class UI {
         if(gp.gameState==gp.talkingToSecuState){
             drawTalkingtoSecuScreen();
         }
+        if(gp.gameState==gp.talkingToAmber){
+            drawTradingScreen();
+        }
         if(gp.gameState==gp.tradingState){
             drawTradingScreen();
         }
