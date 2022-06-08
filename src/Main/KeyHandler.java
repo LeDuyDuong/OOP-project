@@ -377,11 +377,11 @@ public class KeyHandler implements KeyListener {
                     gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
                     gp.gameState=gp.dialogueState;
                     }else if(gp.player.hasCoffe==0){
-                        gp.ui.setMessage("");
+                        gp.ui.setMessage("lmao");
                     }
                 }
                 if(gp.ui.commandNum==1){
-                    gp.ui.setMessage("");
+                    gp.ui.setMessage("cc");
                     gp.gameState= gp.messageState;
                     gp.ui.commandNum=0;
                 }
