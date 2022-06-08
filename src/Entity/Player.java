@@ -173,7 +173,6 @@ public class Player extends Entity{
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Paper_Yellow":
-                    gp.obj[gp.currentMap][i] = null;
                     a= new OBJ_Paper_Yellow(gp);
                     a.description=gp.obj[gp.currentMap][i].description;
                     inventory.add(a);
