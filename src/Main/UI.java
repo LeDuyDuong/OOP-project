@@ -327,7 +327,7 @@ public class UI {
         int x=gp.tileSize*2;
         int y=gp.tileSize/2;
         int width=gp.screenWidth-(gp.tileSize*4);
-        int height= gp.tileSize*4;
+        int height= gp.tileSize*6;
         drawSubWindow(x,y,width,height);
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN,20F));
         x+=gp.tileSize-20;
@@ -339,7 +339,7 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 20F));
         String Text= "OK";
         x= gp.tileSize*12;
-        y= gp.tileSize*4;
+        y= gp.tileSize*6;
         g2.drawString(">", x-gp.tileSize+20,y);
         g2.drawString("<", x+gp.tileSize,y);
         g2.drawString(Text, x, y);

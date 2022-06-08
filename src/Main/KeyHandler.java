@@ -314,23 +314,20 @@ public class KeyHandler implements KeyListener {
             if(code==KeyEvent.VK_ENTER){
                 if(gp.ui.commandNum==0){
                     gp.gameState=gp.messageState;
-                    if(gp.player.hasBag>0){
+                    if(gp.player.hasBag==1){
                         gp.player.hasBag--;
                         gp.gameState=gp.messageState;
-                        //gp.ui.setMessage("Good job! Here're the stuffs i promised");
                         gp.ui.setMessage("Thank you, thank you very much.\n" +
                                 "all assets i have here, thank you.");
                         gp.ui.gameFinished = true;
                         gp.stopMusic();
                         gp.playSE(3);
-                        //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
-                        //gp.gameState=gp.dialogueState;
-                    }else if(gp.player.hasCoffe==0){
+                    }else if(gp.player.hasBag==0){
                         gp.ui.setMessage("Amber : Oh no, you haven't found my bag yet. Please return \nafter you have located my luggage.");
                     }
                 }
                 if(gp.ui.commandNum==1){
-                    gp.ui.setMessage("Amber : I'll stay here till you discover my luggage.");
+                    gp.ui.setMessage("Amber : I'll stay here till you discover my luggage.\nIf you don't, I'll poop on your bed");
                     gp.gameState= gp.messageState;
                     gp.ui.commandNum=0;
                 }
@@ -353,11 +350,11 @@ public class KeyHandler implements KeyListener {
             if(code==KeyEvent.VK_ENTER){
                 if(gp.ui.commandNum==0){
                     gp.gameState=gp.messageState;
-                    if(gp.player.hasLoli>0){
+                    if(gp.player.hasLoli==1){
                         gp.player.hasLoli--;
                         gp.gameState=gp.messageState;
-                        gp.ui.setMessage("Good job!");
-                        gp.npc[0][7].actionCounter++;
+                        gp.ui.setMessage("Good job! Here are things you will need.\nCheck Your  Inventory");
+                        gp.npc[3][0].actionCounter++;
                         gp.player.inventory.add(new OBJ_Key(gp));
                         gp.player.hasKey++;
                         gp.player.inventory.add(new OBJ_Paper(gp));
@@ -368,7 +365,7 @@ public class KeyHandler implements KeyListener {
                             }
                         }
                         for(Entity ent : gp.player.inventory){
-                            if(ent instanceof OBJ_Backpack){
+                            if(ent instanceof OBJ_Lolipop){
                                 gp.player.hasLoli++;
                                 gp.player.inventory.remove(ent);
                                 break;
@@ -377,11 +374,11 @@ public class KeyHandler implements KeyListener {
                     //gp.ui.currentDialogue="YOU GET :\n1 KEY\n1 NOTE \nCHECK YOUR INVENTORY" ;
                     //gp.gameState=gp.dialogueState;
                     }else if(gp.player.hasCoffe==0){
-                        gp.ui.setMessage("");
+                        gp.ui.setMessage("Stop joking dude, or else I'll make you my Loli\n(͡° ͜ʖ ͡°)");
                     }
                 }
                 if(gp.ui.commandNum==1){
-                    gp.ui.setMessage("");
+                    gp.ui.setMessage("Hurry up man!");
                     gp.gameState= gp.messageState;
                     gp.ui.commandNum=0;
                 }
