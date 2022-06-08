@@ -155,26 +155,23 @@ public class Player extends Entity{
 //                    inventory.add(new OBJ_Coffee_cup(gp));
 //                    break;
                 case "Coin":
-                    gp.obj[gp.currentMap][i] = null;
-                    gp.obj[gp.currentMap][i] = null;
                     hasCoin++;
                     gp.ui.setMessage("YOU FOUND A COIN");
                     gp.gameState= gp.messageState;
                     inventory.add(new OBJ_Coin(gp));
-
+                    gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Paper":
                     inventory.add(new OBJ_Paper(gp));
-                    gp.obj[gp.currentMap][i] = null;
                     gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
                     gp.gameState= gp.messageState;
                     gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Paper_Yellow":
                     inventory.add(new OBJ_Paper_Yellow(gp));
-                    gp.obj[gp.currentMap][i] = null;
                     gp.ui.setMessage("YOU FOUND A PIECE OF PAPER");
                     gp.gameState= gp.messageState;
+                    gp.obj[gp.currentMap][i] = null;
                     break;
                 case "Lolipop":
                     inventory.add(new OBJ_Lolipop(gp));
@@ -182,6 +179,20 @@ public class Player extends Entity{
                     hasLoli++;
                     gp.ui.setMessage("YOU A LOLIpop");
                     gp.gameState= gp.messageState;
+                    break;
+                case "Paper_B26":
+                    inventory.add(new OBJ_Paper_B26(gp));
+                    gp.obj[gp.currentMap][i] = null;
+                    gp.ui.setMessage("YOU FOUND A HINT PAPER");
+                    gp.gameState= gp.messageState;
+                    gp.obj[gp.currentMap][i] = null;
+                    break;
+                case "Owl":
+                    inventory.add(new OBJ_Owl(gp));
+                    gp.obj[gp.currentMap][i] = null;
+                    gp.ui.setMessage("YOU FOUND A LITTLE OWL");
+                    gp.gameState= gp.messageState;
+                    gp.obj[gp.currentMap][i] = null;
                     break;
             }
         }

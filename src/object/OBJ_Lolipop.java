@@ -12,6 +12,5 @@ public class OBJ_Lolipop extends Entity {
         down1=setup("/objects/lolipop");
         description= "["+name+"]\n" + "Sweet treat for the trader";
         //collision=false;
-
     }
 }

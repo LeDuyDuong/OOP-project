@@ -40,7 +40,7 @@ public class TilesManager {
         loadMap("/maps/room_B2-6_note_a.txt",8);
         loadMap("/maps/room_B2-6_note_b.txt",9);
         loadMap("/maps/lose.txt",10);
-        loadMap("/maps/lose.txt",11);
+        loadMap("/maps/win.txt",11);
     }
     public void getTileImage(){
             setUpMap(0,"/tiles/others/path.png", false);
