@@ -511,7 +511,7 @@ public class UI {
         y+=gp.tileSize;
         g2.drawString(Text, x, y);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 25F));
-        Text= "Sục cặc chéo";
+        Text= "Đẹp trai có gì sai";
         x=scriptPosition;
         y+=gp.tileSize;
         g2.drawString(Text, x, y);

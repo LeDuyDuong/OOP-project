@@ -23,6 +23,7 @@ The name of our game is IU Detective which somewhat demonstrates the main purpos
 - Map: Show the location where we are standing.
 - Time: Real time or time in game.
 - Change characters: The appearances can be change.
+#### c. 
 ## 4. References & Materials
 #### a. Language: Java with JDK-17.0.2
 #### b. Library: Standard GUI (AWT and SWING)
@@ -40,8 +41,9 @@ The name of our game is IU Detective which somewhat demonstrates the main purpos
 #### Youtube Channel: RyiSnow (https://www.youtube.com/channel/UCS94AD0gxLakurK-6jnqV1w)
 #### List of video used: https://www.youtube.com/watch?v=om59cwR7psI&list=PL_QPQmz5C6WUF-pOQDsbsKbaBZqXj4qSq&ab_channel=RyiSnow
 
-## 5. Task division
-<<<<<<< HEAD
+## 5. UML Diagram
 
-### TEST thu push vo branch hohiep
+All object classes or NPC classes derive from the abstract class Entity in the UML schema of the project. In this, each class object is responsible for drawing a single object, and each class NPC is responsible for creating distinct NPCs.Drawing maps, drawing messages, interacting, moving, colliding, and running programs, on the other hand, are all independent classes that are not inherited into any abstract classes. These classes play an essential part in laying the groundwork for the game, and the Entity class and its descendants will continue to grow to make the game more distinctive.
 
+
+![image](https://user-images.githubusercontent.com/92241573/172813439-c96c8617-25fb-472a-a065-5c8368088775.png)
