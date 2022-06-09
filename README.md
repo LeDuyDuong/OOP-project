@@ -12,7 +12,7 @@ The name of our game is IU Detective which somewhat demonstrates the main purpos
 ### b. Brief description
 - In this game, the player will control the main character – a student detective to find out who is truly the thief of a stolen backpack case with some hints, evidences as well as guides to solve some riddles provided by the game. Moreover, the player has to collect useful tools on the way or to interact with other characters like students and lecturers or objects like opening/close the door, turning on/off something and extract information by reading some letters or description about something.
 - The game is a 2D pixel game and its environment will mimic the actual infrastructure of IU. Therefore, this game will allow us to visit the campus virtually while we enjoy playing it. Especially, due to the Covid-19, many subjects have to be conducted online for the students and they may not have a chance to go to the campus frequently. This game will be a fine solution for this situation.
-## 3. Feature
+## 3. Features
 #### a. Primary features
 - Interact: The players can interact items to find clues.
 - Move: The players can move any directions they can.
@@ -24,9 +24,13 @@ The name of our game is IU Detective which somewhat demonstrates the main purpos
 - Time: Real time or time in game.
 - Change characters: The appearances can be change.
 ## 4. References & Materials
-### a. Language: Java
-### b. Library: Standard GUI (AWT and SWING)
-### c. What would our game look like:
+#### a. Language: Java with JDK-17.0.2
+#### b. Library: Standard GUI (AWT and SWING)
+- To set up game panel and many maps with two-dimension coordinates.
+- To set up borders for many tiles placed in the maps.
+- To Define a core borders for NPCs, Objects as well as Players. This is actually useful for implementing collision checker
+#### c. IDE: IntelliJ
+#### c. What would our game look like:
 ![image](https://user-images.githubusercontent.com/86940283/163815875-0b90166e-bbaa-4da0-a36d-0cf9a77a5695.png)
 ![image](https://user-images.githubusercontent.com/86940283/163815891-e7502b6a-3810-4c30-8bb4-f63012bccd7c.png)
 ![image](https://user-images.githubusercontent.com/86940283/163815904-4e08bdb9-9ba0-4ce2-a523-a3167663424c.png)
