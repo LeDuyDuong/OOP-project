@@ -47,3 +47,10 @@ All object classes or NPC classes derive from the abstract class Entity in the U
 
 
 ![image](https://user-images.githubusercontent.com/92241573/172813439-c96c8617-25fb-472a-a065-5c8368088775.png)
+
+## 6. Complete and Incomplete Features
+Currently, we have finished our initially planned features which are essential for this game performance.
+ - Firstly, KeyHandler and KeyListener are responsible for main player's movement, interaction with NPCs and objects, pausing the game, exit to the menu screen, opening inventory,...
+ - Secondly, EventHandler is conducted as a tool to solve any requirement for state changes like switch two other maps whenever player enters elevators or rooms, or prevent the game from running when key P is pressed or switching to menu screen.
+ - Thirdly, we have to set up AssetSetter to place the NPCs and objects on the map based on the given coordinates from user. Additionally, our maps are simply made of two-dimensional array and each map has the same size 36x36 tiles (each tile is 16x16 bits and they are scaled up to 3 times). At this point, we simple place appropriately the border tiles to prevent player from stepping out the maps.
+ - Finally, to detect which tiles are borders or just simple the object that the player cannot cross it physically, we implement the CollisionChecker. Other features are Sound and UI used to draw dialogues for NPCs, inventory, and set up background musics and  sound effects when player opens door or enter elevators
